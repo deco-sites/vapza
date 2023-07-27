@@ -10319,39 +10319,16 @@
           "description": "Image's alt text",
           "title": "Alt"
         },
-        "action": {
-          "type": "object",
-          "properties": {
-            "href": {
-              "type": "string",
-              "title": "Href"
-            },
-            "title": {
-              "type": "string",
-              "title": "Title"
-            },
-            "subTitle": {
-              "type": "string",
-              "title": "Sub Title"
-            },
-            "label": {
-              "type": "string",
-              "title": "Label"
-            }
-          },
-          "required": [
-            "href",
-            "title",
-            "subTitle",
-            "label"
-          ],
-          "title": "Action"
+        "href": {
+          "type": "string",
+          "title": "Href"
         }
       },
       "required": [
         "desktop",
         "mobile",
-        "alt"
+        "alt",
+        "href"
       ],
       "title": "Banner",
       "titleBy": "alt"
