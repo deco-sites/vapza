@@ -20,18 +20,16 @@ export interface Props {
   cards?: Card[];
 }
 
-function CardItem({ card }: { card: Card; }) {
+function CardItem({ card }: { card: Card }) {
   const {
     icon,
     alt,
     title,
-    description
+    description,
   } = card;
 
   return (
-    <div
-      class=""
-    >
+    <div class="">
       <Picture>
         <Source
           src={icon}
@@ -88,7 +86,7 @@ function IconCarousel({ cards }: Props) {
       <Slider class="carousel carousel-center w-full col-span-full row-span-full scrollbar-none gap-6">
         {cards?.map((icon, index) => (
           <Slider.Item index={index} class="carousel-item w-full">
-            <CardItem card={icon}/>
+            <CardItem card={icon} />
           </Slider.Item>
         ))}
       </Slider>
