@@ -8797,289 +8797,50 @@
       "required": [],
       "title": "deco-sites/vapza/sections/Category/CategoryList.tsx@Props"
     },
-    "ZGVjby1zaXRlcy92YXB6YS9zZWN0aW9ucy9Db250ZW50L0JlbmVmaXRzLnRzeA==@Props": {
+    "ZGVjby1zaXRlcy92YXB6YS9zZWN0aW9ucy9Db250ZW50L0JlbmVmaXRzLnRzeA==@Card": {
       "type": "object",
       "properties": {
+        "icon": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "description": "mobile otimized image",
+          "title": "Icon"
+        },
+        "alt": {
+          "type": "string",
+          "description": "Image's alt text",
+          "title": "Alt"
+        },
         "title": {
-          "type": [
-            "string",
-            "null"
-          ],
+          "type": "string",
           "title": "Title"
         },
         "description": {
-          "type": [
-            "string",
-            "null"
-          ],
+          "type": "string",
           "title": "Description"
-        },
-        "benefits": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "label": {
-                "type": "string",
-                "title": "Label"
-              },
-              "icon": {
-                "anyOf": [
-                  {
-                    "type": "string",
-                    "const": "ArrowsPointingOut",
-                    "default": "ArrowsPointingOut"
-                  },
-                  {
-                    "type": "string",
-                    "const": "Bars3",
-                    "default": "Bars3"
-                  },
-                  {
-                    "type": "string",
-                    "const": "ChevronLeft",
-                    "default": "ChevronLeft"
-                  },
-                  {
-                    "type": "string",
-                    "const": "ChevronRight",
-                    "default": "ChevronRight"
-                  },
-                  {
-                    "type": "string",
-                    "const": "ChevronUp",
-                    "default": "ChevronUp"
-                  },
-                  {
-                    "type": "string",
-                    "const": "ChevronDown",
-                    "default": "ChevronDown"
-                  },
-                  {
-                    "type": "string",
-                    "const": "CreditCard",
-                    "default": "CreditCard"
-                  },
-                  {
-                    "type": "string",
-                    "const": "Deco",
-                    "default": "Deco"
-                  },
-                  {
-                    "type": "string",
-                    "const": "Diners",
-                    "default": "Diners"
-                  },
-                  {
-                    "type": "string",
-                    "const": "Discord",
-                    "default": "Discord"
-                  },
-                  {
-                    "type": "string",
-                    "const": "Discount",
-                    "default": "Discount"
-                  },
-                  {
-                    "type": "string",
-                    "const": "Elo",
-                    "default": "Elo"
-                  },
-                  {
-                    "type": "string",
-                    "const": "Facebook",
-                    "default": "Facebook"
-                  },
-                  {
-                    "type": "string",
-                    "const": "FilterList",
-                    "default": "FilterList"
-                  },
-                  {
-                    "type": "string",
-                    "const": "Heart",
-                    "default": "Heart"
-                  },
-                  {
-                    "type": "string",
-                    "const": "Instagram",
-                    "default": "Instagram"
-                  },
-                  {
-                    "type": "string",
-                    "const": "Linkedin",
-                    "default": "Linkedin"
-                  },
-                  {
-                    "type": "string",
-                    "const": "Minus",
-                    "default": "Minus"
-                  },
-                  {
-                    "type": "string",
-                    "const": "MapPin",
-                    "default": "MapPin"
-                  },
-                  {
-                    "type": "string",
-                    "const": "MagnifyingGlass",
-                    "default": "MagnifyingGlass"
-                  },
-                  {
-                    "type": "string",
-                    "const": "Mastercard",
-                    "default": "Mastercard"
-                  },
-                  {
-                    "type": "string",
-                    "const": "Message",
-                    "default": "Message"
-                  },
-                  {
-                    "type": "string",
-                    "const": "Phone",
-                    "default": "Phone"
-                  },
-                  {
-                    "type": "string",
-                    "const": "Pix",
-                    "default": "Pix"
-                  },
-                  {
-                    "type": "string",
-                    "const": "Plus",
-                    "default": "Plus"
-                  },
-                  {
-                    "type": "string",
-                    "const": "QuestionMarkCircle",
-                    "default": "QuestionMarkCircle"
-                  },
-                  {
-                    "type": "string",
-                    "const": "Return",
-                    "default": "Return"
-                  },
-                  {
-                    "type": "string",
-                    "const": "Ruler",
-                    "default": "Ruler"
-                  },
-                  {
-                    "type": "string",
-                    "const": "ShoppingCart",
-                    "default": "ShoppingCart"
-                  },
-                  {
-                    "type": "string",
-                    "const": "Star",
-                    "default": "Star"
-                  },
-                  {
-                    "type": "string",
-                    "const": "Tiktok",
-                    "default": "Tiktok"
-                  },
-                  {
-                    "type": "string",
-                    "const": "Trash",
-                    "default": "Trash"
-                  },
-                  {
-                    "type": "string",
-                    "const": "Truck",
-                    "default": "Truck"
-                  },
-                  {
-                    "type": "string",
-                    "const": "Twitter",
-                    "default": "Twitter"
-                  },
-                  {
-                    "type": "string",
-                    "const": "User",
-                    "default": "User"
-                  },
-                  {
-                    "type": "string",
-                    "const": "Visa",
-                    "default": "Visa"
-                  },
-                  {
-                    "type": "string",
-                    "const": "WhatsApp",
-                    "default": "WhatsApp"
-                  },
-                  {
-                    "type": "string",
-                    "const": "XMark",
-                    "default": "XMark"
-                  },
-                  {
-                    "type": "string",
-                    "const": "Zoom",
-                    "default": "Zoom"
-                  }
-                ],
-                "type": "string",
-                "title": "Icon"
-              },
-              "description": {
-                "type": "string",
-                "title": "Description"
-              }
-            },
-            "required": [
-              "label",
-              "icon",
-              "description"
-            ]
-          },
-          "title": "Benefits"
-        },
-        "layout": {
-          "type": "object",
-          "properties": {
-            "variation": {
-              "anyOf": [
-                {
-                  "type": "string",
-                  "const": "Simple",
-                  "default": "Simple"
-                },
-                {
-                  "type": "string",
-                  "const": "With border",
-                  "default": "With border"
-                },
-                {
-                  "type": "string",
-                  "const": "Color reverse",
-                  "default": "Color reverse"
-                }
-              ],
-              "type": "string",
-              "title": "Variation"
-            },
-            "headerAlignment": {
-              "anyOf": [
-                {
-                  "type": "string",
-                  "const": "center",
-                  "default": "center"
-                },
-                {
-                  "type": "string",
-                  "const": "left",
-                  "default": "left"
-                }
-              ],
-              "type": "string",
-              "title": "Header Alignment"
-            }
-          },
-          "required": [],
-          "title": "Layout"
+        }
+      },
+      "required": [
+        "icon",
+        "alt",
+        "title",
+        "description"
+      ],
+      "title": "Card",
+      "titleBy": "alt"
+    },
+    "ZGVjby1zaXRlcy92YXB6YS9zZWN0aW9ucy9Db250ZW50L0JlbmVmaXRzLnRzeA==@Card[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy92YXB6YS9zZWN0aW9ucy9Db250ZW50L0JlbmVmaXRzLnRzeA==@Card"
+      },
+      "title": "Card[]"
+    },
+    "ZGVjby1zaXRlcy92YXB6YS9zZWN0aW9ucy9Db250ZW50L0JlbmVmaXRzLnRzeA==@Props": {
+      "type": "object",
+      "properties": {
+        "cards": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy92YXB6YS9zZWN0aW9ucy9Db250ZW50L0JlbmVmaXRzLnRzeA==@Card[]",
+          "title": "Cards"
         }
       },
       "required": [],

@@ -1,139 +1,99 @@
-import Icon, { AvailableIcons } from "$store/components/ui/Icon.tsx";
-import Header from "$store/components/ui/SectionHeader.tsx";
+import Icon from "$store/components/ui/Icon.tsx";
+import Slider from "$store/components/ui/Slider.tsx";
+import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
+import { useId } from "preact/hooks";
+import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 
-export interface Props {
-  title?: string;
-  description?: string;
-  benefits?: Array<{
-    label: string;
-    icon: AvailableIcons;
-    description: string;
-  }>;
-  layout?: {
-    variation?: "Simple" | "With border" | "Color reverse";
-    headerAlignment?: "center" | "left";
-  };
+/**
+ * @titleBy alt
+ */
+export interface Card {
+  /** @description mobile otimized image */
+  icon: LiveImage;
+  /** @description Image's alt text */
+  alt: string;
+  title: string;
+  description: string;
 }
 
-export default function Benefits(
-  props: Props,
-) {
+export interface Props {
+  cards?: Card[];
+}
+
+function CardItem({ card }: { card: Card }) {
   const {
-    title = "",
-    description = "",
-    benefits = [{
-      icon: "Truck",
-      label: "Entrega em todo Brasil",
-      description: "Consulte o prazo no fechamento da compra.",
-    }, {
-      icon: "Discount",
-      label: "15% na primeira compra",
-      description: "Aplicado direto na sacola de compras.",
-    }, {
-      icon: "ArrowsPointingOut",
-      label: "Devolução grátis",
-      description: "Veja as condições para devolver seu produto.",
-    }],
-    layout,
-  } = props;
-
-  const listOfBenefits = benefits.map((benefit, index) => {
-    const showDivider = index < benefits.length - 1;
-    const reverse = layout?.variation === "Color reverse";
-    const benefitLayout = !layout?.variation || layout?.variation === "Simple"
-      ? "tiled"
-      : "piledup";
-
-    return (
-      <div
-        class={`${
-          reverse ? "bg-primary text-primary-content p-4 lg:px-8 lg:py-4" : ""
-        } flex gap-4 ${
-          benefitLayout == "piledup" ? "flex-col items-center text-center" : ""
-        } ${
-          showDivider && benefitLayout !== "piledup"
-            ? "border-b border-neutral-300"
-            : ""
-        } ${showDivider ? "pb-4 lg:pr-8 lg:border-r lg:border-b-0" : ""} ${
-          showDivider && !reverse ? "lg:pb-0" : ""
-        }`}
-      >
-        <div class="flex-none">
-          <Icon
-            id={benefit.icon}
-            class={reverse ? "text-base-100" : "text-primary"}
-            width={36}
-            height={36}
-            strokeWidth={0.01}
-            fill="currentColor"
-          />
-        </div>
-        <div class="flex-auto flex flex-col gap-1 lg:gap-2">
-          <div
-            class={`text-base lg:text-xl leading-7 ${
-              reverse ? "text-base-100" : "text-base-content"
-            }`}
-          >
-            {benefit.label}
-          </div>
-          <p
-            class={`text-sm leading-5 ${
-              reverse ? "text-base-100" : "text-neutral"
-            } ${benefitLayout == "piledup" ? "hidden lg:block" : ""}`}
-          >
-            {benefit.description}
-          </p>
-        </div>
-      </div>
-    );
-  });
+    icon,
+    alt,
+    title,
+    description,
+  } = card;
 
   return (
+    <div class="">
+      <Picture>
+        <Source
+          src={icon}
+          width={35}
+          height={35}
+        />
+        <img
+          class=""
+          src={icon}
+          alt={alt}
+        />
+      </Picture>
+      <h3>{title}</h3>
+      <p>{description}</p>
+    </div>
+  );
+}
+
+function Buttons() {
+  return (
     <>
-      {!layout?.variation || layout?.variation === "Simple"
-        ? (
-          <div class="w-full container px-4 py-8 flex flex-col gap-8 lg:gap-10 lg:py-10 lg:px-0">
-            <Header
-              title={title}
-              description={description}
-              alignment={layout?.headerAlignment || "center"}
-            />
-            <div class="w-full flex justify-center">
-              <div class="flex flex-col gap-4 lg:gap-8 w-full lg:grid grid-flow-col auto-cols-fr">
-                {listOfBenefits}
-              </div>
-            </div>
-          </div>
-        )
-        : ""}
-      {layout?.variation === "With border" && (
-        <div class="w-full container flex flex-col px-4 py-8 gap-8 lg:gap-10 lg:py-10 lg:px-0">
-          <Header
-            title={title}
-            description={description}
-            alignment={layout?.headerAlignment || "center"}
+      <div class="flex items-center justify-center z-10 col-start-1 row-start-2">
+        <Slider.PrevButton class="btn-slider-vapza-bg ">
+          <Icon
+            class="rotate-45 btn-left"
+            size={12}
+            id="ChevronLeft"
+            strokeWidth={3}
           />
-          <div class="w-full flex justify-center">
-            <div class="grid grid-cols-2 gap-4 w-full py-6 px-4 border border-base-300 lg:gap-8 lg:grid-flow-col lg:auto-cols-fr lg:p-10">
-              {listOfBenefits}
-            </div>
-          </div>
-        </div>
-      )}
-      {layout?.variation === "Color reverse" && (
-        <div class="w-full container flex flex-col px-4 py-8 gap-8 lg:gap-10 lg:py-10 lg:px-0">
-          <Header
-            title={title}
-            description={description}
-            alignment={layout?.headerAlignment || "center"}
+        </Slider.PrevButton>
+      </div>
+      <div class="flex items-center justify-center z-10 col-start-3 row-start-2 mt-[60px]">
+        <Slider.NextButton class="btn-slider-vapza-bg ">
+          <Icon
+            class="rotate-[225deg] btn-right"
+            size={12}
+            id="ChevronRight"
+            strokeWidth={3}
           />
-          <div class="w-full flex justify-center">
-            <div class="grid grid-cols-2 gap-4 w-full lg:gap-8 lg:grid-flow-col lg:auto-cols-fr">
-              {listOfBenefits}
-            </div>
-          </div>
-        </div>
-      )}
+        </Slider.NextButton>
+      </div>
     </>
   );
 }
+
+function IconCarousel({ cards }: Props) {
+  const id = useId();
+
+  return (
+    <div
+      id={id}
+      class="grid grid-cols-[48px_1fr_48px] sm:grid-cols-[120px_1fr_120px] grid-rows-[1fr_48px_1fr_64px]"
+    >
+      <Slider class="carousel carousel-center w-full col-span-full row-span-full scrollbar-none gap-6">
+        {cards?.map((icon, index) => (
+          <Slider.Item index={index} class="carousel-item w-full">
+            <CardItem card={icon} />
+          </Slider.Item>
+        ))}
+      </Slider>
+
+      <Buttons />
+    </div>
+  );
+}
+
+export default IconCarousel;
