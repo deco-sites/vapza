@@ -209,19 +209,19 @@ function ProductCard({ product, preload, itemListName, layout }: Props) {
         )}
       </div>
       {!l?.hide?.cta
-          ? (
-            <div class={`px-5 py-4`}>
-              <div
-                class={`btn-card-prod ${
-                  l?.onMouseOver?.showCta ? "lg:hidden" : ""
-                }`}
-              >
-                <Icon size={25} id="ShoppingCartProd" strokeWidth={2} class=""/>
-                {cta}
-              </div>
+        ? (
+          <div class={`px-5 py-4`}>
+            <div
+              class={`btn-card-prod ${
+                l?.onMouseOver?.showCta ? "lg:hidden" : ""
+              }`}
+            >
+              <Icon size={25} id="ShoppingCartProd" strokeWidth={2} class="" />
+              {cta}
             </div>
-          )
-          : ""}
+          </div>
+        )
+        : ""}
     </div>
   );
 }

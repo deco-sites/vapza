@@ -68,18 +68,28 @@ function ProductShelf({
         </Slider>
 
         <>
-        <div class={`absolute flex gap-3 right-4 top-[-65px]`}>
+          <div class={`absolute flex gap-3 right-4 top-[-65px]`}>
             <div class="sm:block z-10 col-start-1 row-start-3">
               <Slider.PrevButton class="btn-slider-vapza-border">
-                <Icon size={12} id="ChevronLeftDark" strokeWidth={3} class="rotate-45 btn-left"/>
+                <Icon
+                  size={12}
+                  id="ChevronLeftDark"
+                  strokeWidth={3}
+                  class="rotate-45 btn-left"
+                />
               </Slider.PrevButton>
             </div>
             <div class=" sm:block z-10 col-start-3 row-start-3">
               <Slider.NextButton class="btn-slider-vapza-border">
-                <Icon size={12} id="ChevronRightDark" strokeWidth={3} class="rotate-[225deg] btn-right" />
+                <Icon
+                  size={12}
+                  id="ChevronRightDark"
+                  strokeWidth={3}
+                  class="rotate-[225deg] btn-right"
+                />
               </Slider.NextButton>
             </div>
-        </div>
+          </div>
         </>
         <SliderJS rootId={id} />
         <SendEventOnLoad
