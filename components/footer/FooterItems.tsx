@@ -44,15 +44,15 @@ export default function FooterItems(
           </ul>
 
           {/* Mobile view */}
-          <ul class="flex flex-col md:hidden gap-4">
+          <ul class="join join-vertical w-full">
             {sections.map((section) => (
               <li>
-                <details>
-                  <summary>
+                <details class={`collapse collapse-arrow join-item border-b border-base-200`}>
+                  <summary class={`collapse-title text-base uppercase font-medium after:text-primary`}>
                     <span class="pl-1 py-2">{section.label}</span>
                   </summary>
                   <ul
-                    class={`flex flex-col gap-1 pl-5 pt-2`}
+                    class={`collapse-content`}
                   >
                     {section.items?.map((item) => (
                       <li>

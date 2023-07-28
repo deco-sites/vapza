@@ -9508,6 +9508,11 @@
               "type": "string",
               "const": "Twitter",
               "default": "Twitter"
+            },
+            {
+              "type": "string",
+              "const": "Youtube",
+              "default": "Youtube"
             }
           ],
           "type": "string",
@@ -9553,13 +9558,23 @@
             },
             {
               "type": "string",
-              "const": "Pix",
-              "default": "Pix"
+              "const": "Visa",
+              "default": "Visa"
             },
             {
               "type": "string",
-              "const": "Visa",
-              "default": "Visa"
+              "const": "Hipercard",
+              "default": "Hipercard"
+            },
+            {
+              "type": "string",
+              "const": "Boleto",
+              "default": "Boleto"
+            },
+            {
+              "type": "string",
+              "const": "AmericanExpress",
+              "default": "AmericanExpress"
             }
           ],
           "type": "string",
@@ -9578,109 +9593,9 @@
       },
       "title": "PaymentItem[]"
     },
-    "ZGVjby1zaXRlcy92YXB6YS9jb21wb25lbnRzL2Zvb3Rlci9Gb290ZXIudHN4@MobileApps": {
-      "type": "object",
-      "properties": {
-        "apple": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "description": "Link to the app",
-          "title": "Apple"
-        },
-        "android": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "description": "Link to the app",
-          "title": "Android"
-        }
-      },
-      "required": [],
-      "title": "MobileApps"
-    },
-    "ZGVjby1zaXRlcy92YXB6YS9jb21wb25lbnRzL2Zvb3Rlci9Gb290ZXIudHN4@RegionOptions": {
-      "type": "object",
-      "properties": {
-        "currency": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy92YXB6YS9jb21wb25lbnRzL2Zvb3Rlci9Gb290ZXIudHN4@Item[]",
-          "title": "Currency"
-        },
-        "language": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy92YXB6YS9jb21wb25lbnRzL2Zvb3Rlci9Gb290ZXIudHN4@Item[]",
-          "title": "Language"
-        }
-      },
-      "required": [],
-      "title": "RegionOptions"
-    },
     "ZGVjby1zaXRlcy92YXB6YS9jb21wb25lbnRzL2Zvb3Rlci9Gb290ZXIudHN4@Layout": {
       "type": "object",
       "properties": {
-        "backgroundColor": {
-          "anyOf": [
-            {
-              "type": "string",
-              "const": "Primary",
-              "default": "Primary"
-            },
-            {
-              "type": "string",
-              "const": "Secondary",
-              "default": "Secondary"
-            },
-            {
-              "type": "string",
-              "const": "Accent",
-              "default": "Accent"
-            },
-            {
-              "type": "string",
-              "const": "Base 100",
-              "default": "Base 100"
-            },
-            {
-              "type": "string",
-              "const": "Base 100 inverted",
-              "default": "Base 100 inverted"
-            }
-          ],
-          "type": "string",
-          "title": "Background Color"
-        },
-        "variation": {
-          "anyOf": [
-            {
-              "type": "string",
-              "const": "Variation 1",
-              "default": "Variation 1"
-            },
-            {
-              "type": "string",
-              "const": "Variation 2",
-              "default": "Variation 2"
-            },
-            {
-              "type": "string",
-              "const": "Variation 3",
-              "default": "Variation 3"
-            },
-            {
-              "type": "string",
-              "const": "Variation 4",
-              "default": "Variation 4"
-            },
-            {
-              "type": "string",
-              "const": "Variation 5",
-              "default": "Variation 5"
-            }
-          ],
-          "type": "string",
-          "title": "Variation"
-        },
         "hide": {
           "type": "object",
           "properties": {
@@ -9758,26 +9673,6 @@
     "ZGVjby1zaXRlcy92YXB6YS9jb21wb25lbnRzL2Zvb3Rlci9Gb290ZXIudHN4@Props": {
       "type": "object",
       "properties": {
-        "logo": {
-          "type": "object",
-          "properties": {
-            "image": {
-              "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
-              "title": "Image"
-            },
-            "description": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "title": "Description"
-            }
-          },
-          "required": [
-            "image"
-          ],
-          "title": "Logo"
-        },
         "newsletter": {
           "type": "object",
           "properties": {
@@ -9803,9 +9698,47 @@
           "required": [],
           "title": "Newsletter"
         },
+        "logo": {
+          "type": "object",
+          "properties": {
+            "image": {
+              "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+              "title": "Image"
+            },
+            "description": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "title": "Description"
+            }
+          },
+          "required": [
+            "image"
+          ],
+          "title": "Logo"
+        },
         "sections": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy92YXB6YS9jb21wb25lbnRzL2Zvb3Rlci9Gb290ZXIudHN4@Section[]",
           "title": "Sections"
+        },
+        "protecao": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string",
+              "title": "Title"
+            },
+            "imagem": {
+              "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+              "title": "Imagem"
+            }
+          },
+          "required": [
+            "title",
+            "imagem"
+          ],
+          "title": "Protecao"
         },
         "social": {
           "type": "object",
@@ -9846,14 +9779,6 @@
             "items"
           ],
           "title": "Payments"
-        },
-        "mobileApps": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy92YXB6YS9jb21wb25lbnRzL2Zvb3Rlci9Gb290ZXIudHN4@MobileApps",
-          "title": "Mobile Apps"
-        },
-        "regionOptions": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy92YXB6YS9jb21wb25lbnRzL2Zvb3Rlci9Gb290ZXIudHN4@RegionOptions",
-          "title": "Region Options"
         },
         "extraLinks": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy92YXB6YS9jb21wb25lbnRzL2Zvb3Rlci9Gb290ZXIudHN4@Item[]",
@@ -11038,6 +10963,26 @@
               "type": "string",
               "const": "Zoom",
               "default": "Zoom"
+            },
+            {
+              "type": "string",
+              "const": "Hipercard",
+              "default": "Hipercard"
+            },
+            {
+              "type": "string",
+              "const": "Boleto",
+              "default": "Boleto"
+            },
+            {
+              "type": "string",
+              "const": "AmericanExpress",
+              "default": "AmericanExpress"
+            },
+            {
+              "type": "string",
+              "const": "Youtube",
+              "default": "Youtube"
             }
           ],
           "type": "string",

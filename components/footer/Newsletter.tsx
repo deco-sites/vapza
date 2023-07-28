@@ -33,55 +33,50 @@ function Newsletter(
 
       const email =
         (e.currentTarget.elements.namedItem("email") as RadioNodeList)?.value;
+      const name =
+        (e.currentTarget.elements.namedItem("name") as RadioNodeList)?.value;
 
-      await subscribe({ email });
+      await subscribe({ email, name });
     } finally {
       loading.value = false;
     }
   };
 
   return (
-    <div
-      class={`flex ${
-        tiled
-          ? "flex-col gap-4 lg:flex-row lg:w-full lg:justify-between"
-          : "flex-col gap-4"
-      }`}
-    >
+    <div class={`flex flex-col gap-5`}>
       <div class="flex flex-col gap-4">
         {content?.title && (
-          <h3 class={tiled ? "text-2xl lg:text-3xl" : "text-lg"}>
+          <h3 class={"text-2xl text-center"}>
             {content?.title}
           </h3>
         )}
-        {content?.description && <div>{content?.description}</div>}
+        {content?.description && <div class={`text-sm tracking-wider`}>{content?.description}</div>}
       </div>
       <div class="flex flex-col gap-4">
         <form
           class="form-control"
           onSubmit={handleSubmit}
         >
-          <div class="flex gap-3">
+          <div class="flex flex-col gap-4">
+            <input
+                name="name"
+                class="flex-auto input input-bordered rounded-[30px] text-base-content h-[45px]"
+                placeholder={content?.form?.placeholder || "Nome*"}
+            />
             <input
               name="email"
-              class="flex-auto md:flex-none input input-bordered md:w-80 text-base-content"
-              placeholder={content?.form?.placeholder || "Digite seu email"}
+              class="flex-auto input input-bordered rounded-[30px] text-base-content h-[45px]"
+              placeholder={content?.form?.placeholder || "E-mail*"}
             />
             <button
               type="submit"
-              class="btn disabled:loading"
+              class="btn disabled:loading rounded-[30px] bg-primary text-white border-none uppercase tracking-[2px]"
               disabled={loading}
             >
-              {content?.form?.buttonText || "Inscrever"}
+              {content?.form?.buttonText || "Cadastrar"}
             </button>
           </div>
         </form>
-        {content?.form?.helpText && (
-          <div
-            class="text-sm"
-            dangerouslySetInnerHTML={{ __html: content?.form?.helpText }}
-          />
-        )}
       </div>
     </div>
   );
