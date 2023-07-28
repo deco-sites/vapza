@@ -1,4 +1,6 @@
 import Icon from "$store/components/ui/Icon.tsx";
+import Button from "$store/components/ui/Button.tsx";
+import SliderJS from "$store/islands/SliderJS.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
 import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
 import { useId } from "preact/hooks";
@@ -29,21 +31,20 @@ function CardItem({ card }: { card: Card }) {
   } = card;
 
   return (
-    <div class="">
+    <div class="flex flex-col items-center justify-center w-[85%] my-0 mx-auto text-center gap-[5px]">
       <Picture>
         <Source
           src={icon}
-          width={35}
-          height={35}
+          width={40}
         />
         <img
-          class=""
+          class="w-full h-auto max-h-[38px] max-w-[37px]"
           src={icon}
           alt={alt}
         />
       </Picture>
-      <h3>{title}</h3>
-      <p>{description}</p>
+      <h3 class={`uppercase text-sm mt-1 tracking-wider text-black`}>{title}</h3>
+      <p class={`text-xs px-[30px] tracking-widest`}>{description}</p>
     </div>
   );
 }
@@ -51,22 +52,22 @@ function CardItem({ card }: { card: Card }) {
 function Buttons() {
   return (
     <>
-      <div class="flex items-center justify-center z-10 col-start-1 row-start-2">
-        <Slider.PrevButton class="btn-slider-vapza-bg ">
+      <div class="absolute left-4 top-[30%] flex items-center justify-center z-10 ">
+        <Slider.PrevButton class="btn-slider-vapza-border">
           <Icon
             class="rotate-45 btn-left"
             size={12}
-            id="ChevronLeft"
+            id="ChevronLeftDark"
             strokeWidth={3}
           />
         </Slider.PrevButton>
       </div>
-      <div class="flex items-center justify-center z-10 col-start-3 row-start-2 mt-[60px]">
-        <Slider.NextButton class="btn-slider-vapza-bg ">
+      <div class="absolute right-4 top-[30%] flex items-center justify-center z-10 ">
+        <Slider.NextButton class="btn-slider-vapza-border">
           <Icon
             class="rotate-[225deg] btn-right"
             size={12}
-            id="ChevronRight"
+            id="ChevronRightDark"
             strokeWidth={3}
           />
         </Slider.NextButton>
@@ -81,7 +82,7 @@ function IconCarousel({ cards }: Props) {
   return (
     <div
       id={id}
-      class="grid grid-cols-[48px_1fr_48px] sm:grid-cols-[120px_1fr_120px] grid-rows-[1fr_48px_1fr_64px]"
+      class="relative py-10 grid grid-cols-[48px_1fr_48px] sm:grid-cols-[120px_1fr_120px] grid-rows-[1fr_48px_1fr_64px]"
     >
       <Slider class="carousel carousel-center w-full col-span-full row-span-full scrollbar-none gap-6">
         {cards?.map((icon, index) => (
@@ -92,6 +93,8 @@ function IconCarousel({ cards }: Props) {
       </Slider>
 
       <Buttons />
+
+      <SliderJS rootId={id} infinite />
     </div>
   );
 }

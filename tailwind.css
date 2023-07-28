@@ -41,11 +41,21 @@
     justify-content: center;
     border-radius: 100%;
   }
-  .btn-slider-vapza-bg .btn-right{
+  .btn-slider-vapza-border{
+    background-color: #fff;
+    border: 1px solid #235140;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+  }
+  .btn-slider-vapza-bg .btn-right, .btn-slider-vapza-border .btn-right{
     margin-right: 6px;
     margin-top: 2px;
   }
-  .btn-slider-vapza-bg .btn-left{
+  .btn-slider-vapza-bg .btn-left, .btn-slider-vapza-border .btn-left{
     margin-left: 2px;
     margin-bottom: 2px;
   }

@@ -10609,6 +10609,16 @@
             },
             {
               "type": "string",
+              "const": "ChevronLeftDark",
+              "default": "ChevronLeftDark"
+            },
+            {
+              "type": "string",
+              "const": "ChevronRightDark",
+              "default": "ChevronRightDark"
+            },
+            {
+              "type": "string",
               "const": "ChevronUp",
               "default": "ChevronUp"
             },
