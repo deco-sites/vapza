@@ -22,7 +22,9 @@ export default function Social(
     <>
       {content && content.items && content.items.length > 0 && (
         <div class="flex flex-col gap-2">
-          {content.title && <h3 class="text-base uppercase">{content.title}</h3>}
+          {content.title && (
+            <h3 class="text-base uppercase">{content.title}</h3>
+          )}
           <ul
             class={`flex flex-wrap items-center`}
           >

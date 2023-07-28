@@ -86,11 +86,11 @@ export interface Props {
     items: PaymentItem[];
   };
   layout?: Layout;
-  footerFinally?:{
+  footerFinally?: {
     span: string;
     logoEsq: LiveImage;
     logoDir: LiveImage;
-  }
+  };
 }
 
 function Footer({
@@ -203,8 +203,8 @@ function Footer({
         <div>
           <span>{footerFinally?.span}</span>
           <div>
-            <img src={footerFinally?.logoEsq}/>
-            <img src={footerFinally?.logoDir}/>
+            <img src={footerFinally?.logoEsq} />
+            <img src={footerFinally?.logoDir} />
           </div>
         </div>
       </div>
