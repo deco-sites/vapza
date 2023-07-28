@@ -1,11 +1,10 @@
 import { useId } from "preact/hooks";
 
-
 export interface Props {
   title: string;
 }
 
-function SectionTitle({ title}: Props) {
+function SectionTitle({ title }: Props) {
   const id = useId();
 
   return (

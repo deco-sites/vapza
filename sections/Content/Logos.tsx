@@ -43,14 +43,14 @@ function Logos(props: Props) {
   return (
     <div class="w-full container px-4 pb-8 flex flex-wrap items-center justify-evenly">
       {list.map((element) => (
-          <div class="flex w-max h-full items-center justify-center py-[5px] px-[10px]">
-            <Image
-              width={47}
-              src={element.image}
-              alt={element.alt || ""}
-              class="max-w-full max-h-full"
-            />
-          </div>
+        <div class="flex w-max h-full items-center justify-center py-[5px] px-[10px]">
+          <Image
+            width={47}
+            src={element.image}
+            alt={element.alt || ""}
+            class="max-w-full max-h-full"
+          />
+        </div>
       ))}
     </div>
   );
