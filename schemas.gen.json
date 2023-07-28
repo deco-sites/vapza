@@ -108,6 +108,7 @@
               "deco-sites/vapza/sections/Content/Faq.tsx",
               "deco-sites/vapza/sections/Content/Logos.tsx",
               "deco-sites/vapza/sections/Content/ProcessProd.tsx",
+              "deco-sites/vapza/sections/Content/SectionTitle.tsx",
               "deco-sites/vapza/sections/Content/Testimonials.tsx",
               "deco-sites/vapza/sections/Footer/Footer.tsx",
               "deco-sites/vapza/sections/Header/Header.tsx",
@@ -9120,6 +9121,19 @@
       ],
       "title": "deco-sites/vapza/sections/Content/ProcessProd.tsx@Props"
     },
+    "ZGVjby1zaXRlcy92YXB6YS9zZWN0aW9ucy9Db250ZW50L1NlY3Rpb25UaXRsZS50c3g=@Props": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "title": "Title"
+        }
+      },
+      "required": [
+        "title"
+      ],
+      "title": "deco-sites/vapza/sections/Content/SectionTitle.tsx@Props"
+    },
     "ZGVjby1zaXRlcy92YXB6YS9zZWN0aW9ucy9Db250ZW50L1Rlc3RpbW9uaWFscy50c3g=@Testimonial": {
       "type": "object",
       "properties": {
@@ -15221,6 +15235,27 @@
         }
       }
     },
+    "ZGVjby1zaXRlcy92YXB6YS9zZWN0aW9ucy9Db250ZW50L1NlY3Rpb25UaXRsZS50c3g=": {
+      "title": "deco-sites/vapza/sections/Content/SectionTitle.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy92YXB6YS9zZWN0aW9ucy9Db250ZW50L1NlY3Rpb25UaXRsZS50c3g=@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/vapza/sections/Content/SectionTitle.tsx"
+          ],
+          "default": "deco-sites/vapza/sections/Content/SectionTitle.tsx"
+        }
+      }
+    },
     "ZGVjby1zaXRlcy92YXB6YS9zZWN0aW9ucy9Db250ZW50L1Rlc3RpbW9uaWFscy50c3g=": {
       "title": "deco-sites/vapza/sections/Content/Testimonials.tsx",
       "type": "object",
@@ -16701,6 +16736,9 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy92YXB6YS9zZWN0aW9ucy9Db250ZW50L1Byb2Nlc3NQcm9kLnRzeA=="
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy92YXB6YS9zZWN0aW9ucy9Db250ZW50L1NlY3Rpb25UaXRsZS50c3g="
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy92YXB6YS9zZWN0aW9ucy9Db250ZW50L1Rlc3RpbW9uaWFscy50c3g="

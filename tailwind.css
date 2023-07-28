@@ -59,7 +59,19 @@
     margin-left: 2px;
     margin-bottom: 2px;
   }
-
+  .section-title{
+    font-size: 20px;
+    line-height: 24px;
+    padding: 10px 15px;
+    margin: 0 50px 15px;
+    text-align: center;
+    color: #235140;
+    font-family: "Baloo Thambi 2",sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+    display: inline-block;
+    background: #fff;
+}
   .title-line::after{
     content: "";
     width: 100%;
