@@ -22,7 +22,7 @@ function BannerLarge({ image, alt }: Props) {
           height={791}
         />
         <img
-          class="w-full h-auto mb-4"
+          class="w-full h-auto"
           src={image}
           alt={alt}
         />
