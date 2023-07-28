@@ -7,19 +7,19 @@ export interface Props {
   alt?: string;
 }
 
-function Banner({ image, alt }: Props) {
+function BannerLarge({ image, alt }: Props) {
   const id = useId();
 
   return (
     <div
       id={id}
-      class="flex items-center justify-center px-4"
+      class="flex items-center justify-center pt-[30px]"
     >
       <Picture>
         <Source
           src={image}
-          width={345}
-          height={323}
+          width={375}
+          height={791}
         />
         <img
           class="w-full h-auto mb-4"
@@ -31,4 +31,4 @@ function Banner({ image, alt }: Props) {
   );
 }
 
-export default Banner;
+export default BannerLarge;
