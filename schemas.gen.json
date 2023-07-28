@@ -9780,27 +9780,32 @@
           ],
           "title": "Payments"
         },
-        "extraLinks": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy92YXB6YS9jb21wb25lbnRzL2Zvb3Rlci9Gb290ZXIudHN4@Item[]",
-          "title": "Extra Links"
-        },
-        "backToTheTop": {
-          "type": "object",
-          "properties": {
-            "text": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "title": "Text"
-            }
-          },
-          "required": [],
-          "title": "Back To The Top"
-        },
         "layout": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy92YXB6YS9jb21wb25lbnRzL2Zvb3Rlci9Gb290ZXIudHN4@Layout",
           "title": "Layout"
+        },
+        "footerFinally": {
+          "type": "object",
+          "properties": {
+            "span": {
+              "type": "string",
+              "title": "Span"
+            },
+            "logoEsq": {
+              "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+              "title": "Logo Esq"
+            },
+            "logoDir": {
+              "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+              "title": "Logo Dir"
+            }
+          },
+          "required": [
+            "span",
+            "logoEsq",
+            "logoDir"
+          ],
+          "title": "Footer Finally"
         }
       },
       "required": [],

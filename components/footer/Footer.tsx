@@ -72,7 +72,6 @@ export interface Props {
     image: LiveImage;
     description?: string;
   };
-
   sections?: Section[];
   protecao?: {
     title: string;
@@ -86,11 +85,12 @@ export interface Props {
     title?: string;
     items: PaymentItem[];
   };
-  extraLinks?: Item[];
-  backToTheTop?: {
-    text?: string;
-  };
   layout?: Layout;
+  footerFinally?:{
+    span: string;
+    logoEsq: LiveImage;
+    logoDir: LiveImage;
+  }
 }
 
 function Footer({
@@ -142,6 +142,7 @@ function Footer({
     items: [{ label: "Mastercard" }, { label: "Visa" }],
   },
   protecao,
+  footerFinally,
   layout = {
     hide: {
       logo: false,
@@ -188,15 +189,22 @@ function Footer({
             {_logo}
           </div>
           {_sectionLinks}
-          <div class="flex gap-5 ">
-            <div>
-              <h3>{protecao?.title}</h3>
+          <div class="flex gap-12">
+            <div class={`flex flex-col gap-2`}>
+              <h3 class={`uppercase`}>{protecao?.title}</h3>
               <img src={protecao?.imagem} alt={protecao?.title} />
             </div>
             {_social}
           </div>
           <div class="flex flex-col lg:flex-row gap-10 lg:gap-14 lg:items-end">
             {_payments}
+          </div>
+        </div>
+        <div>
+          <span>{footerFinally?.span}</span>
+          <div>
+            <img src={footerFinally?.logoEsq}/>
+            <img src={footerFinally?.logoDir}/>
           </div>
         </div>
       </div>
