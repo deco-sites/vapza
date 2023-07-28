@@ -43,7 +43,9 @@ function CardItem({ card }: { card: Card }) {
           alt={alt}
         />
       </Picture>
-      <h3 class={`uppercase text-sm mt-1 tracking-wider text-black`}>{title}</h3>
+      <h3 class={`uppercase text-sm mt-1 tracking-wider text-black`}>
+        {title}
+      </h3>
       <p class={`text-xs px-[30px] tracking-widest`}>{description}</p>
     </div>
   );
