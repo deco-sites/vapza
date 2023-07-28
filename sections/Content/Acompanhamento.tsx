@@ -19,7 +19,7 @@ export interface Card {
   cta: {
     label: string;
     href: string;
-  }
+  };
 }
 
 export interface Props {
@@ -66,9 +66,7 @@ function Acompanhamento({ cards }: Props) {
       id={id}
       class="flex flex-wrap gap-5 pt-[50px] pb-5"
     >
-        {cards?.map((icon, index) => (
-            <CardItem card={icon} />
-        ))}
+      {cards?.map((icon, index) => <CardItem card={icon} />)}
     </div>
   );
 }
