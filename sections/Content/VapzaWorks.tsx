@@ -26,11 +26,11 @@ function VapzaWorks({ title, description, banner, iframe, alt, href }: Props) {
         class={`pt-4 min-h-[320px] h-[70vw]`}
         style={`background: url('${iframe.backgroundIframe}') no-repeat; background-size: 100% 100%`}
       >
-        {/* <YouTubeFrame
+        <YouTubeFrame
           videoUrl={iframe.videoUrl}
           width={iframe.width}
           height={iframe.height}
-        /> */}
+        />
       </div>
       <div class={`px-4 flex flex-col gap-10`}>
         <h2 class={`text-2xl text-primary pb-4`}>{title}</h2>
