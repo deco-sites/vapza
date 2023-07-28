@@ -49,25 +49,24 @@ function CardItem({ card }: { card: Card }) {
           {title}
         </h3>
         {description &&
-          <p class={`text-xs px-[30px] tracking-widest`}>{description}</p>
-        }
+          <p class={`text-xs px-[30px] tracking-widest`}>{description}</p>}
       </div>
       {arrowImage &&
-        <Picture>
-        <Source
-          src={arrowImage}
-          width={150}
-        />
-        <img
-          class="w-full h-auto"
-          src={arrowImage}
-        />
-      </Picture>
-      }
+        (
+          <Picture>
+            <Source
+              src={arrowImage}
+              width={150}
+            />
+            <img
+              class="w-full h-auto"
+              src={arrowImage}
+            />
+          </Picture>
+        )}
     </div>
   );
 }
-
 
 function ProcessProd({ title, cards }: Props) {
   const id = useId();
@@ -78,9 +77,7 @@ function ProcessProd({ title, cards }: Props) {
       class="relative py-[30px] "
     >
       <h2>{title}</h2>
-        {cards?.map((image) => (
-            <CardItem card={image} />
-        ))}
+      {cards?.map((image) => <CardItem card={image} />)}
     </div>
   );
 }
