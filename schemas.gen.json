@@ -107,6 +107,7 @@
               "deco-sites/vapza/sections/Content/Benefits.tsx",
               "deco-sites/vapza/sections/Content/Faq.tsx",
               "deco-sites/vapza/sections/Content/Logos.tsx",
+              "deco-sites/vapza/sections/Content/ProcessProd.tsx",
               "deco-sites/vapza/sections/Content/Testimonials.tsx",
               "deco-sites/vapza/sections/Footer/Footer.tsx",
               "deco-sites/vapza/sections/Header/Header.tsx",
@@ -9058,6 +9059,67 @@
       "required": [],
       "title": "deco-sites/vapza/sections/Content/Logos.tsx@Props"
     },
+    "ZGVjby1zaXRlcy92YXB6YS9zZWN0aW9ucy9Db250ZW50L1Byb2Nlc3NQcm9kLnRzeA==@Card": {
+      "type": "object",
+      "properties": {
+        "image": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "description": "otimized image",
+          "title": "Image"
+        },
+        "alt": {
+          "type": "string",
+          "description": "Image's alt text",
+          "title": "Alt"
+        },
+        "title": {
+          "type": "string",
+          "title": "Title"
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Description"
+        },
+        "arrowImage": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "title": "Arrow Image"
+        }
+      },
+      "required": [
+        "image",
+        "alt",
+        "title"
+      ],
+      "title": "Card",
+      "titleBy": "alt"
+    },
+    "ZGVjby1zaXRlcy92YXB6YS9zZWN0aW9ucy9Db250ZW50L1Byb2Nlc3NQcm9kLnRzeA==@Card[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy92YXB6YS9zZWN0aW9ucy9Db250ZW50L1Byb2Nlc3NQcm9kLnRzeA==@Card"
+      },
+      "title": "Card[]"
+    },
+    "ZGVjby1zaXRlcy92YXB6YS9zZWN0aW9ucy9Db250ZW50L1Byb2Nlc3NQcm9kLnRzeA==@Props": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "title": "Title"
+        },
+        "cards": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy92YXB6YS9zZWN0aW9ucy9Db250ZW50L1Byb2Nlc3NQcm9kLnRzeA==@Card[]",
+          "title": "Cards"
+        }
+      },
+      "required": [
+        "title"
+      ],
+      "title": "deco-sites/vapza/sections/Content/ProcessProd.tsx@Props"
+    },
     "ZGVjby1zaXRlcy92YXB6YS9zZWN0aW9ucy9Db250ZW50L1Rlc3RpbW9uaWFscy50c3g=@Testimonial": {
       "type": "object",
       "properties": {
@@ -15126,6 +15188,27 @@
         }
       }
     },
+    "ZGVjby1zaXRlcy92YXB6YS9zZWN0aW9ucy9Db250ZW50L1Byb2Nlc3NQcm9kLnRzeA==": {
+      "title": "deco-sites/vapza/sections/Content/ProcessProd.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy92YXB6YS9zZWN0aW9ucy9Db250ZW50L1Byb2Nlc3NQcm9kLnRzeA==@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/vapza/sections/Content/ProcessProd.tsx"
+          ],
+          "default": "deco-sites/vapza/sections/Content/ProcessProd.tsx"
+        }
+      }
+    },
     "ZGVjby1zaXRlcy92YXB6YS9zZWN0aW9ucy9Db250ZW50L1Rlc3RpbW9uaWFscy50c3g=": {
       "title": "deco-sites/vapza/sections/Content/Testimonials.tsx",
       "type": "object",
@@ -16603,6 +16686,9 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy92YXB6YS9zZWN0aW9ucy9Db250ZW50L0xvZ29zLnRzeA=="
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy92YXB6YS9zZWN0aW9ucy9Db250ZW50L1Byb2Nlc3NQcm9kLnRzeA=="
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy92YXB6YS9zZWN0aW9ucy9Db250ZW50L1Rlc3RpbW9uaWFscy50c3g="
