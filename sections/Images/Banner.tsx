@@ -13,15 +13,15 @@ function Banner({ image, alt }: Props) {
   return (
     <div
       id={id}
-      class="relative flex flex-col items-center justify-center px-4 z-[1]"
+      class="flex items-center justify-center px-4"
     >
       <Picture>
         <Source
           src={image}
-          width={150}
+          width={345}
         />
         <img
-          class="w-full h-auto max-w-[150px] my-5"
+          class="w-full h-auto mb-4"
           src={image}
           alt={alt}
         />
