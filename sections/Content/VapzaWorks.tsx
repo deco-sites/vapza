@@ -14,15 +14,17 @@ export interface Props {
   description: string;
   banner: LiveImage;
   alt?: string;
+  href: string;
 }
 
-function VapzaWorks({ title, description, banner, iframe, alt }: Props) {
+function VapzaWorks({ title, description, banner, iframe, alt, href }: Props) {
   const id = useId();
 
   return (
     <>
       <div
-        class={`py-[30px] bg-base-200 bg-[url('${iframe.backgroundIframe}')]`}
+        class={`pt-4 min-h-[320px] h-[70vw]`}
+        style={`background: url('${iframe.backgroundIframe}') no-repeat; background-size: 100% 100%`}
       >
         <YouTubeFrame
           videoUrl={iframe.videoUrl}
@@ -30,11 +32,11 @@ function VapzaWorks({ title, description, banner, iframe, alt }: Props) {
           height={iframe.height}
         />
       </div>
-      <div>
-        <h2>{title}</h2>
-        <p>{description}</p>
+      <div class={`px-4 flex flex-col gap-10`}>
+        <h2 class={`text-2xl text-primary pb-4`}>{title}</h2>
+        <p class={`text-[15px] text-black mb-7`}>{description}</p>
       </div>
-      <div class="flex items-center justify-center px-4">
+      <a class="flex items-center justify-center px-4" href={href}>
         <Picture>
           <Source
             src={banner}
@@ -47,7 +49,7 @@ function VapzaWorks({ title, description, banner, iframe, alt }: Props) {
             alt={alt}
           />
         </Picture>
-      </div>
+      </a>
     </>
   );
 }

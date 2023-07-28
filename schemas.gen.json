@@ -9311,13 +9311,18 @@
             "null"
           ],
           "title": "Alt"
+        },
+        "href": {
+          "type": "string",
+          "title": "Href"
         }
       },
       "required": [
         "iframe",
         "title",
         "description",
-        "banner"
+        "banner",
+        "href"
       ],
       "title": "deco-sites/vapza/sections/Content/VapzaWorks.tsx@Props"
     },
