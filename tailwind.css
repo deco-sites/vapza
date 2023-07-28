@@ -59,6 +59,25 @@
     margin-left: 2px;
     margin-bottom: 2px;
   }
+
+  .title-line::after{
+    content: "";
+    width: 100%;
+    height: 1px;
+    display: inline-block;
+    vertical-align: middle;
+    background: #235140;
+    left: 0;
+    position: absolute;
+    z-index: -1;
+    top: 25px;
+  }
+  .card-reverse:nth-child(odd){
+    grid-template-columns: 2fr 1fr;
+  }
+  .card-reverse:nth-child(odd) .desc-reverse{
+    order: -1;
+  }
 }
 
 

@@ -20,7 +20,7 @@ export interface Props {
   cards?: Card[];
 }
 
-function CardItem({ card }: { card: Card }) {
+function CardItem({ card }: { card: Card}) {
   const {
     image,
     alt,
@@ -30,7 +30,8 @@ function CardItem({ card }: { card: Card }) {
   } = card;
 
   return (
-    <div class="flex flex-col items-center justify-center px-1">
+    <>
+    <div class="flex flex-row items-center justify-start w-full odd:flex-row-reverse">
       <div>
         <Picture>
           <Source
@@ -38,33 +39,42 @@ function CardItem({ card }: { card: Card }) {
             width={112}
           />
           <img
-            class="w-full h-auto"
+            class="h-auto w-[112px] min-w-[112px]"
             src={image}
             alt={alt}
           />
         </Picture>
       </div>
       <div>
-        <h3 class={`uppercase text-sm mt-1 tracking-wider text-black`}>
+        <h3 class={`uppercase text-[13px] leading-[18px] mx-5 tracking-wider text-primary`}>
           {title}
         </h3>
         {description &&
-          <p class={`text-xs px-[30px] tracking-widest`}>{description}</p>}
+          <p class={`text-xs mx-5 tracking-widest`}>{description}</p>}
       </div>
-      {arrowImage &&
-        (
-          <Picture>
-            <Source
-              src={arrowImage}
-              width={150}
-            />
-            <img
-              class="w-full h-auto"
-              src={arrowImage}
-            />
-          </Picture>
-        )}
     </div>
+    {arrowImage &&
+      (
+      <>
+      <div></div>
+      <div>
+        <Picture >
+          <Source
+            src={arrowImage}
+            width={150}
+          />
+          <img
+            class="w-full h-auto max-w-[150px] my-5"
+            src={arrowImage}
+          />
+        </Picture>
+        </div>
+        </>
+      )}
+      {!arrowImage &&
+      (<div></div>
+      )}
+    </>
   );
 }
 
@@ -72,12 +82,14 @@ function ProcessProd({ title, cards }: Props) {
   const id = useId();
 
   return (
-    <div
-      id={id}
-      class="relative py-[30px] "
-    >
-      <h2>{title}</h2>
-      {cards?.map((image) => <CardItem card={image} />)}
+    <div class={`py-[30px] bg-base-200`}>
+      <div
+        id={id}
+        class="relative flex flex-col items-center justify-center px-4 z-[1]"
+      >
+        <h2 class={`title-line uppercase text-xl py-2.5 px-4 mb-4 mx-[50px] text-primary text-center leading-6 bg-base-200`}>{title}</h2>
+        {cards?.map((image, index) => <CardItem card={image} key={index}/>)}
+      </div>
     </div>
   );
 }
