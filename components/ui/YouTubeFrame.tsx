@@ -13,6 +13,7 @@ const YouTubePlayer = ({ videoUrl, width, height }: Props) => {
       width={width}
       height={height}
       src={embedUrl}
+      loading="lazy"
       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
     >
     </iframe>
