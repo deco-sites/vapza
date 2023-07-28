@@ -10681,6 +10681,11 @@
             },
             {
               "type": "string",
+              "const": "ShoppingCartProd",
+              "default": "ShoppingCartProd"
+            },
+            {
+              "type": "string",
               "const": "ChevronUp",
               "default": "ChevronUp"
             },
@@ -11504,6 +11509,13 @@
             "null"
           ],
           "title": "Description"
+        },
+        "labelPromo": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Label Promo"
         },
         "layout": {
           "type": "object",

@@ -8,6 +8,7 @@ export type AvailableIcons =
   | "ChevronRight"
   | "ChevronLeftDark"
   | "ChevronRightDark"
+  | "ShoppingCartProd"
   | "ChevronUp"
   | "ChevronDown"
   | "CreditCard"

@@ -1,6 +1,6 @@
 import Image from "deco-sites/std/components/Image.tsx";
 import Avatar from "$store/components/ui/Avatar.tsx";
-import WishlistIcon from "$store/islands/WishlistButton.tsx";
+import Icon from "$store/components/ui/Icon.tsx";
 import { useOffer } from "$store/sdk/useOffer.ts";
 import { formatPrice } from "$store/sdk/format.ts";
 import { useVariantPossibilities } from "$store/sdk/useVariantPossiblities.ts";
@@ -51,8 +51,8 @@ const relative = (url: string) => {
   return `${link.pathname}${link.search}`;
 };
 
-const WIDTH = 200;
-const HEIGHT = 279;
+const WIDTH = 233;
+const HEIGHT = 233;
 
 function ProductCard({ product, preload, itemListName, layout }: Props) {
   const {
@@ -75,23 +75,13 @@ function ProductCard({ product, preload, itemListName, layout }: Props) {
     !l?.basics?.contentAlignment || l?.basics?.contentAlignment == "Left"
       ? "left"
       : "center";
-  const skuSelector = variants.map(([value, [link]]) => (
-    <li>
-      <a href={link}>
-        <Avatar
-          variant={link === url ? "active" : "default"}
-          content={value}
-        />
-      </a>
-    </li>
-  ));
   const cta = (
     <a
       href={url && relative(url)}
       aria-label="view product"
-      class="btn btn-block"
+      class=""
     >
-      {l?.basics?.ctaText || "Ver produto"}
+      {l?.basics?.ctaText || "Adicionar a sacola"}
     </a>
   );
 
@@ -105,7 +95,7 @@ function ProductCard({ product, preload, itemListName, layout }: Props) {
         l?.onMouseOver?.card === "Move up" &&
         "duration-500 transition-translate ease-in-out lg:hover:-translate-y-2"
       }
-      `}
+      rounded-[5px] p-1 border border-base-300`}
       data-deco="view-product"
     >
       <SendEventOnClick
@@ -128,26 +118,6 @@ function ProductCard({ product, preload, itemListName, layout }: Props) {
         class="relative overflow-hidden"
         style={{ aspectRatio: `${WIDTH} / ${HEIGHT}` }}
       >
-        {/* Wishlist button */}
-        <div
-          class={`absolute top-2 z-10
-          ${
-            l?.elementsPositions?.favoriteIcon === "Top left"
-              ? "left-2"
-              : "right-2"
-          }
-          ${
-            l?.onMouseOver?.showFavoriteIcon
-              ? "lg:hidden lg:group-hover:block"
-              : "lg:hidden"
-          }
-        `}
-        >
-          <WishlistIcon
-            productGroupID={productGroupID}
-            productID={productID}
-          />
-        </div>
         {/* Product Images */}
         <a
           href={url && relative(url)}
@@ -192,43 +162,9 @@ function ProductCard({ product, preload, itemListName, layout }: Props) {
             />
           )}
         </a>
-        <figcaption
-          class={`
-          absolute bottom-1 left-0 w-full flex flex-col gap-3 p-2
-          ${
-            l?.onMouseOver?.showSkuSelector || l?.onMouseOver?.showCta
-              ? "transition-opacity opacity-0 lg:group-hover:opacity-100"
-              : "lg:hidden"
-          }
-        `}
-        >
-          {/* SKU Selector */}
-          {l?.onMouseOver?.showSkuSelector && (
-            <ul class="flex justify-center items-center gap-2 w-full">
-              {skuSelector}
-            </ul>
-          )}
-          {l?.onMouseOver?.showCta && cta}
-        </figcaption>
       </figure>
       {/* Prices & Name */}
       <div class="flex-auto flex flex-col p-2 gap-3 lg:gap-4">
-        {/* SKU Selector */}
-        {(!l?.elementsPositions?.skuSelector ||
-          l?.elementsPositions?.skuSelector === "Top") && (
-          <>
-            {l?.hide?.skuSelector ? "" : (
-              <ul
-                class={`flex items-center gap-2 w-full ${
-                  align === "center" ? "justify-center" : "justify-start"
-                } ${l?.onMouseOver?.showSkuSelector ? "lg:hidden" : ""}`}
-              >
-                {skuSelector}
-              </ul>
-            )}
-          </>
-        )}
-
         {l?.hide?.productName && l?.hide?.productDescription
           ? ""
           : (
@@ -236,16 +172,9 @@ function ProductCard({ product, preload, itemListName, layout }: Props) {
               {l?.hide?.productName
                 ? ""
                 : (
-                  <h2 class="truncate text-base lg:text-lg text-base-content">
+                  <h2 class="uppercase text-xs lg:text-lg text-black">
                     {name}
                   </h2>
-                )}
-              {l?.hide?.productDescription
-                ? ""
-                : (
-                  <p class="truncate text-sm lg:text-sm text-neutral">
-                    {product.description}
-                  </p>
                 )}
             </div>
           )}
@@ -259,53 +188,40 @@ function ProductCard({ product, preload, itemListName, layout }: Props) {
               } ${align === "center" ? "justify-center" : "justify-start"}`}
             >
               <div
-                class={`line-through text-base-300 text-xs ${
+                class={`line-through text-base-content text-xs ${
                   l?.basics?.oldPriceSize === "Normal" ? "lg:text-xl" : ""
                 }`}
               >
                 {formatPrice(listPrice, offers!.priceCurrency!)}
               </div>
-              <div class="text-accent text-base lg:text-xl">
+              <div class="text-black text-[22px]">
                 {formatPrice(price, offers!.priceCurrency!)}
               </div>
             </div>
             {l?.hide?.installments
               ? ""
               : (
-                <div class="text-base-300 text-sm lg:text-base">
+                <div class="text-black text-sm lg:text-base">
                   ou {installments}
                 </div>
               )}
           </div>
         )}
-
-        {/* SKU Selector */}
-        {l?.elementsPositions?.skuSelector === "Bottom" && (
-          <>
-            {l?.hide?.skuSelector ? "" : (
-              <ul
-                class={`flex items-center gap-2 w-full ${
-                  align === "center" ? "justify-center" : "justify-start"
-                } ${l?.onMouseOver?.showSkuSelector ? "lg:hidden" : ""}`}
-              >
-                {skuSelector}
-              </ul>
-            )}
-          </>
-        )}
-
-        {!l?.hide?.cta
+      </div>
+      {!l?.hide?.cta
           ? (
-            <div
-              class={`flex-auto flex items-end ${
-                l?.onMouseOver?.showCta ? "lg:hidden" : ""
-              }`}
-            >
-              {cta}
+            <div class={`px-5 py-4`}>
+              <div
+                class={`btn-card-prod ${
+                  l?.onMouseOver?.showCta ? "lg:hidden" : ""
+                }`}
+              >
+                <Icon size={25} id="ShoppingCartProd" strokeWidth={2} class=""/>
+                {cta}
+              </div>
             </div>
           )
           : ""}
-      </div>
     </div>
   );
 }

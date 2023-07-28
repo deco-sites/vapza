@@ -16,6 +16,7 @@ export interface Props {
   products: LoaderReturnType<Product[] | null>;
   title?: string;
   description?: string;
+  labelPromo?: string;
   layout?: {
     headerAlignment?: "center" | "left";
     headerfontSize?: "Normal" | "Large";
@@ -27,6 +28,7 @@ function ProductShelf({
   products,
   title,
   description,
+  labelPromo,
   layout,
   cardLayout,
 }: Props) {
@@ -37,17 +39,18 @@ function ProductShelf({
   }
 
   return (
-    <div class="w-full container  py-8 flex flex-col gap-12 lg:gap-16 lg:py-10">
+    <div class="w-full container py-8 flex flex-col gap-12 lg:gap-16 lg:py-10">
       <Header
         title={title || ""}
         description={description || ""}
+        labelPromo={labelPromo || ""}
         fontSize={layout?.headerfontSize || "Large"}
         alignment={layout?.headerAlignment || "center"}
       />
 
       <div
         id={id}
-        class="container grid grid-cols-[48px_1fr_48px] px-0 sm:px-5"
+        class="relative container grid grid-cols-[48px_1fr_48px] px-0 sm:px-5"
       >
         <Slider class="carousel carousel-center sm:carousel-end gap-6 col-span-full row-start-2 row-end-5">
           {products?.map((product, index) => (
@@ -65,16 +68,18 @@ function ProductShelf({
         </Slider>
 
         <>
-          <div class="hidden relative sm:block z-10 col-start-1 row-start-3">
-            <Slider.PrevButton class="btn btn-circle btn-outline absolute right-1/2 bg-base-100">
-              <Icon size={20} id="ChevronLeft" strokeWidth={3} />
-            </Slider.PrevButton>
-          </div>
-          <div class="hidden relative sm:block z-10 col-start-3 row-start-3">
-            <Slider.NextButton class="btn btn-circle btn-outline absolute left-1/2 bg-base-100">
-              <Icon size={20} id="ChevronRight" strokeWidth={3} />
-            </Slider.NextButton>
-          </div>
+        <div class={`absolute flex gap-3 right-4 top-[-65px]`}>
+            <div class="sm:block z-10 col-start-1 row-start-3">
+              <Slider.PrevButton class="btn-slider-vapza-border">
+                <Icon size={12} id="ChevronLeftDark" strokeWidth={3} class="rotate-45 btn-left"/>
+              </Slider.PrevButton>
+            </div>
+            <div class=" sm:block z-10 col-start-3 row-start-3">
+              <Slider.NextButton class="btn-slider-vapza-border">
+                <Icon size={12} id="ChevronRightDark" strokeWidth={3} class="rotate-[225deg] btn-right" />
+              </Slider.NextButton>
+            </div>
+        </div>
         </>
         <SliderJS rootId={id} />
         <SendEventOnLoad
