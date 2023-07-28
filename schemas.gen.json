@@ -104,6 +104,7 @@
               "deco-sites/std/sections/VTEXPortalDataLayerCompatibility.tsx",
               "deco-sites/vapza/sections/Category/CategoryBanner.tsx",
               "deco-sites/vapza/sections/Category/CategoryList.tsx",
+              "deco-sites/vapza/sections/Content/Acompanhamento.tsx",
               "deco-sites/vapza/sections/Content/Benefits.tsx",
               "deco-sites/vapza/sections/Content/Faq.tsx",
               "deco-sites/vapza/sections/Content/Logos.tsx",
@@ -8802,6 +8803,74 @@
       "required": [],
       "title": "deco-sites/vapza/sections/Category/CategoryList.tsx@Props"
     },
+    "ZGVjby1zaXRlcy92YXB6YS9zZWN0aW9ucy9Db250ZW50L0Fjb21wYW5oYW1lbnRvLnRzeA==@Card": {
+      "type": "object",
+      "properties": {
+        "icon": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "description": "mobile otimized image",
+          "title": "Icon"
+        },
+        "alt": {
+          "type": "string",
+          "description": "Image's alt text",
+          "title": "Alt"
+        },
+        "title": {
+          "type": "string",
+          "title": "Title"
+        },
+        "description": {
+          "type": "string",
+          "title": "Description"
+        },
+        "cta": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string",
+              "title": "Label"
+            },
+            "href": {
+              "type": "string",
+              "title": "Href"
+            }
+          },
+          "required": [
+            "label",
+            "href"
+          ],
+          "title": "Cta"
+        }
+      },
+      "required": [
+        "icon",
+        "alt",
+        "title",
+        "description",
+        "cta"
+      ],
+      "title": "Card",
+      "titleBy": "alt"
+    },
+    "ZGVjby1zaXRlcy92YXB6YS9zZWN0aW9ucy9Db250ZW50L0Fjb21wYW5oYW1lbnRvLnRzeA==@Card[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy92YXB6YS9zZWN0aW9ucy9Db250ZW50L0Fjb21wYW5oYW1lbnRvLnRzeA==@Card"
+      },
+      "title": "Card[]"
+    },
+    "ZGVjby1zaXRlcy92YXB6YS9zZWN0aW9ucy9Db250ZW50L0Fjb21wYW5oYW1lbnRvLnRzeA==@Props": {
+      "type": "object",
+      "properties": {
+        "cards": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy92YXB6YS9zZWN0aW9ucy9Db250ZW50L0Fjb21wYW5oYW1lbnRvLnRzeA==@Card[]",
+          "title": "Cards"
+        }
+      },
+      "required": [],
+      "title": "deco-sites/vapza/sections/Content/Acompanhamento.tsx@Props"
+    },
     "ZGVjby1zaXRlcy92YXB6YS9zZWN0aW9ucy9Db250ZW50L0JlbmVmaXRzLnRzeA==@Card": {
       "type": "object",
       "properties": {
@@ -15248,6 +15317,27 @@
         }
       }
     },
+    "ZGVjby1zaXRlcy92YXB6YS9zZWN0aW9ucy9Db250ZW50L0Fjb21wYW5oYW1lbnRvLnRzeA==": {
+      "title": "deco-sites/vapza/sections/Content/Acompanhamento.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy92YXB6YS9zZWN0aW9ucy9Db250ZW50L0Fjb21wYW5oYW1lbnRvLnRzeA==@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/vapza/sections/Content/Acompanhamento.tsx"
+          ],
+          "default": "deco-sites/vapza/sections/Content/Acompanhamento.tsx"
+        }
+      }
+    },
     "ZGVjby1zaXRlcy92YXB6YS9zZWN0aW9ucy9Db250ZW50L0JlbmVmaXRzLnRzeA==": {
       "title": "deco-sites/vapza/sections/Content/Benefits.tsx",
       "type": "object",
@@ -16884,6 +16974,9 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy92YXB6YS9zZWN0aW9ucy9DYXRlZ29yeS9DYXRlZ29yeUxpc3QudHN4"
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy92YXB6YS9zZWN0aW9ucy9Db250ZW50L0Fjb21wYW5oYW1lbnRvLnRzeA=="
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy92YXB6YS9zZWN0aW9ucy9Db250ZW50L0JlbmVmaXRzLnRzeA=="
