@@ -30,7 +30,14 @@ export interface SocialItem {
 }
 
 export interface PaymentItem {
-  label: "Diners" | "Elo" | "Mastercard" | "Visa" | "Hipercard" | "Boleto" | "AmericanExpress";
+  label:
+    | "Diners"
+    | "Elo"
+    | "Mastercard"
+    | "Visa"
+    | "Hipercard"
+    | "Boleto"
+    | "AmericanExpress";
 }
 
 export interface NewsletterForm {
@@ -65,12 +72,12 @@ export interface Props {
     image: LiveImage;
     description?: string;
   };
-  
+
   sections?: Section[];
-  protecao?:{
+  protecao?: {
     title: string;
     imagem: LiveImage;
-  } ;
+  };
   social?: {
     title?: string;
     items: SocialItem[];
@@ -172,26 +179,26 @@ function Footer({
       }`}
     >
       <div class="lg:container mx-6 lg:mx-auto">
-          <div class="flex flex-col gap-10">
-            <div class="flex flex-col md:flex-row md:justify-between md:flex-wrap lg:flex-nowrap gap-8 lg:gap-12">
-              {_newsletter}
-            </div>  
-            <Divider />
-            <div>
-              {_logo}
-            </div>
-            {_sectionLinks}
-            <div class="flex gap-5 ">
-              <div>
-                <h3>{protecao?.title}</h3>
-                <img src={protecao?.imagem} alt={protecao?.title} />
-              </div>
-              {_social}
-            </div>
-            <div class="flex flex-col lg:flex-row gap-10 lg:gap-14 lg:items-end">
-                {_payments}
-              </div>
+        <div class="flex flex-col gap-10">
+          <div class="flex flex-col md:flex-row md:justify-between md:flex-wrap lg:flex-nowrap gap-8 lg:gap-12">
+            {_newsletter}
           </div>
+          <Divider />
+          <div>
+            {_logo}
+          </div>
+          {_sectionLinks}
+          <div class="flex gap-5 ">
+            <div>
+              <h3>{protecao?.title}</h3>
+              <img src={protecao?.imagem} alt={protecao?.title} />
+            </div>
+            {_social}
+          </div>
+          <div class="flex flex-col lg:flex-row gap-10 lg:gap-14 lg:items-end">
+            {_payments}
+          </div>
+        </div>
       </div>
     </footer>
   );

@@ -33,8 +33,8 @@ function Newsletter(
 
       const email =
         (e.currentTarget.elements.namedItem("email") as RadioNodeList)?.value;
-      const name =
-        (e.currentTarget.elements.namedItem("name") as RadioNodeList)?.value;
+      const name = (e.currentTarget.elements.namedItem("name") as RadioNodeList)
+        ?.value;
 
       await subscribe({ email, name });
     } finally {
@@ -50,7 +50,9 @@ function Newsletter(
             {content?.title}
           </h3>
         )}
-        {content?.description && <div class={`text-sm tracking-wider`}>{content?.description}</div>}
+        {content?.description && (
+          <div class={`text-sm tracking-wider`}>{content?.description}</div>
+        )}
       </div>
       <div class="flex flex-col gap-4">
         <form
@@ -59,9 +61,9 @@ function Newsletter(
         >
           <div class="flex flex-col gap-4">
             <input
-                name="name"
-                class="flex-auto input input-bordered rounded-[30px] text-base-content h-[45px]"
-                placeholder={content?.form?.placeholder || "Nome*"}
+              name="name"
+              class="flex-auto input input-bordered rounded-[30px] text-base-content h-[45px]"
+              placeholder={content?.form?.placeholder || "Nome*"}
             />
             <input
               name="email"

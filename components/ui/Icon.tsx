@@ -44,8 +44,8 @@ export type AvailableIcons =
   | "WhatsApp"
   | "XMark"
   | "Zoom"
-  | "Hipercard" 
-  | "Boleto" 
+  | "Hipercard"
+  | "Boleto"
   | "AmericanExpress"
   | "Youtube";
 

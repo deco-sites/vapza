@@ -47,8 +47,12 @@ export default function FooterItems(
           <ul class="join join-vertical w-full">
             {sections.map((section) => (
               <li>
-                <details class={`collapse collapse-arrow join-item border-b border-base-200`}>
-                  <summary class={`collapse-title text-base uppercase font-medium after:text-primary`}>
+                <details
+                  class={`collapse collapse-arrow join-item border-b border-base-200`}
+                >
+                  <summary
+                    class={`collapse-title text-base uppercase font-medium after:text-primary`}
+                  >
                     <span class="pl-1 py-2">{section.label}</span>
                   </summary>
                   <ul
