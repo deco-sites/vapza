@@ -35,24 +35,24 @@ function CardItem({ card }: { card: Card }) {
   } = card;
 
   return (
-    <div class="flex flex-col items-center justify-center w-[85%] my-0 mx-auto text-center gap-[5px]">
+    <div class="flex flex-col px-[30px] items-center justify-center w-[85%] max-w-[268px] my-0 mx-auto text-center gap-[5px]">
       <Picture>
         <Source
           src={icon}
           width={40}
         />
         <img
-          class="w-full h-auto max-h-[38px] max-w-[37px]"
+          class="w-full h-auto max-h-[40px] max-w-[58px]"
           src={icon}
           alt={alt}
         />
       </Picture>
-      <h3 class={`uppercase text-sm mt-1 tracking-wider text-black`}>
+      <h3 class={`uppercase text-sm mt-1 tracking-wider text-secondary`}>
         {title}
       </h3>
-      <p class={`text-xs px-[30px] tracking-widest`}>{description}</p>
-      <a href={`${card.cta.href}`}>
-        <button>{card.cta.label}</button>
+      <p class={`text-xs text-black max-w-[265px]`}>{description}</p>
+      <a href={`${card.cta.href}`} class={`btn-acomp`}>
+        <button class={`uppercase tracking-[2px]`}>{card.cta.label}</button>
       </a>
     </div>
   );
@@ -64,7 +64,7 @@ function Acompanhamento({ cards }: Props) {
   return (
     <div
       id={id}
-      class="flex flex-col gap-5"
+      class="flex flex-wrap gap-5 pt-[50px] pb-5"
     >
         {cards?.map((icon, index) => (
             <CardItem card={icon} />
