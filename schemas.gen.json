@@ -9633,34 +9633,6 @@
                 "null"
               ],
               "title": "Payment Methods"
-            },
-            "mobileApps": {
-              "type": [
-                "boolean",
-                "null"
-              ],
-              "title": "Mobile Apps"
-            },
-            "regionOptions": {
-              "type": [
-                "boolean",
-                "null"
-              ],
-              "title": "Region Options"
-            },
-            "extraLinks": {
-              "type": [
-                "boolean",
-                "null"
-              ],
-              "title": "Extra Links"
-            },
-            "backToTheTop": {
-              "type": [
-                "boolean",
-                "null"
-              ],
-              "title": "Back To The Top"
             }
           },
           "required": [],

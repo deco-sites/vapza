@@ -54,10 +54,6 @@ export interface Layout {
     sectionLinks?: boolean;
     socialLinks?: boolean;
     paymentMethods?: boolean;
-    mobileApps?: boolean;
-    regionOptions?: boolean;
-    extraLinks?: boolean;
-    backToTheTop?: boolean;
   };
 }
 
@@ -175,9 +171,7 @@ function Footer({
 
   return (
     <footer
-      class={`w-full flex flex-col pt-10 pb-2 md:pb-10 gap-10 ${
-        ColorClasses(layout)
-      }`}
+      class={`w-full flex flex-col pt-10 bg-black gap-10`}
     >
       <div class="lg:container mx-6 lg:mx-auto">
         <div class="flex flex-col gap-10">
@@ -189,24 +183,24 @@ function Footer({
             {_logo}
           </div>
           {_sectionLinks}
-          <div class="flex gap-12">
+          <div class="flex justify-center gap-12">
             <div class={`flex flex-col gap-2`}>
               <h3 class={`uppercase`}>{protecao?.title}</h3>
               <img src={protecao?.imagem} alt={protecao?.title} />
             </div>
             {_social}
           </div>
-          <div class="flex flex-col lg:flex-row gap-10 lg:gap-14 lg:items-end">
+          <div class="flex flex-col gap-10">
             {_payments}
           </div>
         </div>
-        <div>
-          <span>{footerFinally?.span}</span>
-          <div>
+      </div>
+      <div class={`flex flex-col justify-center items-center bg-[#111111]`}>
+          <span class={`px-4 text-center text-sm text-white mb-4 pt-4`}>{footerFinally?.span}</span>
+          <div class={`flex justify-center items-center pb-4 gap-4`}>
             <img src={footerFinally?.logoEsq} />
             <img src={footerFinally?.logoDir} />
           </div>
-        </div>
       </div>
     </footer>
   );
