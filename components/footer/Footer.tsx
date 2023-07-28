@@ -196,11 +196,13 @@ function Footer({
         </div>
       </div>
       <div class={`flex flex-col justify-center items-center bg-[#111111]`}>
-          <span class={`px-4 text-center text-sm text-white mb-4 pt-4`}>{footerFinally?.span}</span>
-          <div class={`flex justify-center items-center pb-4 gap-4`}>
-            <img src={footerFinally?.logoEsq} />
-            <img src={footerFinally?.logoDir} />
-          </div>
+        <span class={`px-4 text-center text-sm text-white mb-4 pt-4`}>
+          {footerFinally?.span}
+        </span>
+        <div class={`flex justify-center items-center pb-4 gap-4`}>
+          <img src={footerFinally?.logoEsq} />
+          <img src={footerFinally?.logoDir} />
+        </div>
       </div>
     </footer>
   );
