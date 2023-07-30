@@ -66,35 +66,37 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
   const { price, listPrice, seller, installments, availability } = useOffer(
     offers,
   );
-  console.log(product)
+  console.log(product);
   return (
     <>
       {/* Code and name */}
       <div class="mt-4 sm:mt-8">
-        <h1 class={`flex flex-col gap-2 text-xl text-black tracking-[1px] uppercase`}>
-          {isVariantOf?.name != name ?
-          <>
-            {isVariantOf?.name}
-            <span class="text-black text-xs">{name}</span>
-          </>
-          :
-            <span class="text-black text-xs">{name}</span>
-          }
+        <h1
+          class={`flex flex-col gap-2 text-xl text-black tracking-[1px] uppercase`}
+        >
+          {isVariantOf?.name != name
+            ? (
+              <>
+                {isVariantOf?.name}
+                <span class="text-black text-xs">{name}</span>
+              </>
+            )
+            : <span class="text-black text-xs">{name}</span>}
         </h1>
       </div>
       {/* Prices */}
       <div class="mt-4">
         <div class="flex flex-col gap-1\">
           {listPrice != price &&
-            <span class="line-through text-base-content text-sm leading-[1]">
-              {formatPrice(listPrice, offers!.priceCurrency!)}
-            </span>
-          }
+            (
+              <span class="line-through text-base-content text-sm leading-[1]">
+                {formatPrice(listPrice, offers!.priceCurrency!)}
+              </span>
+            )}
           <span class="font-medium text-3xl text-secondary">
             {formatPrice(price, offers!.priceCurrency!)}
           </span>
         </div>
-
       </div>
       {/* Sku Selector */}
       <div class="mt-4 sm:mt-6">
@@ -122,9 +124,7 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
       </div>
       {/* Description card */}
       <div class="mt-[30px]">
-          {description && (
-            <p class={`text-sm text-black`}>{description}</p>
-          )}
+        {description && <p class={`text-sm text-black`}>{description}</p>}
       </div>
       {/* Shipping Simulation */}
       <div class="mt-8">
@@ -196,13 +196,13 @@ function Details({
   if (variant === "slider") {
     return (
       <>
-         {/* Breadcrumb */}
-         <div class={`mt-4 mb-[30px] px-4`}>
+        {/* Breadcrumb */}
+        <div class={`mt-4 mb-[30px] px-4`}>
           <Breadcrumb
             itemListElement={breadcrumbList?.itemListElement.slice(0, -1)}
           />
-         </div>
-        
+        </div>
+
         <div
           id={id}
           class="grid grid-cols-1 gap-4 sm:grid-cols-[max-content_40vw_40vw] sm:grid-rows-1 sm:justify-center"

@@ -116,10 +116,20 @@ function ShippingSimulation({ items }: Props) {
               postalCode.value = e.currentTarget.value;
             }}
           />
-          <Button type="submit" loading={loading.value} class="uppercase bg-tertiary h-[48px] tracking-[1px] text-sm rounded-[50px] text-black">
+          <Button
+            type="submit"
+            loading={loading.value}
+            class="uppercase bg-tertiary h-[48px] tracking-[1px] text-sm rounded-[50px] text-black"
+          >
             Calcular frete
           </Button>
-          <a href="http://www.buscacep.correios.com.br/sistemas/buscacep/" target="_blank" class={`absolute top-[15px] right-5 text-secondary text-xs`}>Não sei meu cep</a>
+          <a
+            href="http://www.buscacep.correios.com.br/sistemas/buscacep/"
+            target="_blank"
+            class={`absolute top-[15px] right-5 text-secondary text-xs`}
+          >
+            Não sei meu cep
+          </a>
         </form>
       </div>
       <div>
