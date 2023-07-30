@@ -14,8 +14,8 @@ export interface IconItem {
     // | "SoAquecer"
     // | "Organico"
     // | "Single"
-    | "PratosProntos";
-    // | "Kits";
+    "PratosProntos";
+  // | "Kits";
 }
 export interface NavItem {
   icon: IconItem;
@@ -26,7 +26,6 @@ export interface Props {
   /** @title Logo */
   logo?: { src: Image; alt: string };
 
-  
   /**
    * @title Navigation items
    * @description Navigation items used on mobile
@@ -34,9 +33,8 @@ export interface Props {
   navItems?: NavItem[];
 
   navItemsBottom?: NavItem[];
-/** @title Search Bar */
+  /** @title Search Bar */
   searchbar?: SearchbarProps;
-  
 }
 
 function Header({
@@ -45,12 +43,17 @@ function Header({
   navItemsBottom = [],
   logo,
 }: Props) {
-  const searchbar = { ..._searchbar};
+  const searchbar = { ..._searchbar };
   return (
     <>
       <header style={{ height: headerHeight }}>
         <div class="bg-base-100 fixed w-full z-50">
-          <Navbar items={navItems} itemsBottom={navItemsBottom} searchbar={searchbar} logo={logo} />
+          <Navbar
+            items={navItems}
+            itemsBottom={navItemsBottom}
+            searchbar={searchbar}
+            logo={logo}
+          />
         </div>
 
         <Modals

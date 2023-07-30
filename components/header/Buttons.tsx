@@ -29,9 +29,9 @@ function MenuButton() {
       class="btn btn-circle btn-sm btn-ghost"
       aria-label="open menu"
       onClick={() => {
-        if(!displayMenu.value){
+        if (!displayMenu.value) {
           displayMenu.value = true;
-        }else{
+        } else {
           displayMenu.value = false;
         }
       }}

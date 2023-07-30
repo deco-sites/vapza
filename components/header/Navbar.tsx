@@ -10,8 +10,8 @@ export interface IconItem {
     // | "SoAquecer"
     // | "Organico"
     // | "Single"
-    | "PratosProntos";
-    // | "Kits";
+    "PratosProntos";
+  // | "Kits";
 }
 
 export interface INavItem {

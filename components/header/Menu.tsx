@@ -7,8 +7,8 @@ export interface IconItem {
     // | "SoAquecer"
     // | "Organico"
     // | "Single"
-    | "PratosProntos";
-    // | "Kits";
+    "PratosProntos";
+  // | "Kits";
 }
 export interface NavItem {
   icon: IconItem;
@@ -24,9 +24,13 @@ function MenuItem({ item }: { item: NavItem }) {
   return (
     <div class={`flex items-center py-[18px] pl-4 gap-3`}>
       <Icon id={item?.icon?.label} width={18} height={18} strokeWidth={1} />
-      <a class="text-xs text-primary uppercase tracking-widest leading-5" href={item.href}>{item.label}</a>
+      <a
+        class="text-xs text-primary uppercase tracking-widest leading-5"
+        href={item.href}
+      >
+        {item.label}
+      </a>
     </div>
-    
   );
 }
 
