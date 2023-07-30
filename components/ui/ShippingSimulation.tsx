@@ -97,15 +97,9 @@ function ShippingSimulation({ items }: Props) {
 
   return (
     <div class="flex flex-col gap-2">
-      <div class="flex flex-col">
-        <span>Calcular frete</span>
-        <span>
-          Informe seu CEP para consultar os prazos de entrega
-        </span>
-      </div>
       <div>
         <form
-          class="join"
+          class="flex flex-col gap-2.5 relative"
           onSubmit={(e) => {
             e.preventDefault();
             handleSimulation();
@@ -114,17 +108,18 @@ function ShippingSimulation({ items }: Props) {
           <input
             as="input"
             type="text"
-            class="input input-bordered join-item"
-            placeholder="Seu cep aqui"
+            class="h-[48px] border border-base-300 rounded-[50px] text-xs text-primary indent-6 placeholder:text-primary"
+            placeholder="SEU CEP"
             value={postalCode.value}
             maxLength={8}
             onChange={(e: { currentTarget: { value: string } }) => {
               postalCode.value = e.currentTarget.value;
             }}
           />
-          <Button type="submit" loading={loading.value} class="join-item">
-            Calcular
+          <Button type="submit" loading={loading.value} class="uppercase bg-tertiary h-[48px] tracking-[1px] text-sm rounded-[50px] text-black">
+            Calcular frete
           </Button>
+          <a href="http://www.buscacep.correios.com.br/sistemas/buscacep/" target="_blank" class={`absolute top-[15px] right-5 text-secondary text-xs`}>Não sei meu cep</a>
         </form>
       </div>
       <div>

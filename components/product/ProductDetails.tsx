@@ -30,8 +30,8 @@ export interface Props {
   variant?: Variant;
 }
 
-const WIDTH = 360;
-const HEIGHT = 500;
+const WIDTH = 450;
+const HEIGHT = 450;
 const ASPECT_RATIO = `${WIDTH} / ${HEIGHT}`;
 
 /**
@@ -66,37 +66,35 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
   const { price, listPrice, seller, installments, availability } = useOffer(
     offers,
   );
-
+  console.log(product)
   return (
     <>
-      {/* Breadcrumb */}
-      <Breadcrumb
-        itemListElement={breadcrumbList?.itemListElement.slice(0, -1)}
-      />
       {/* Code and name */}
       <div class="mt-4 sm:mt-8">
-        <div>
-          <span class="text-sm text-base-300">
-            Cod. {gtin}
-          </span>
-        </div>
-        <h1>
-          <span class="font-medium text-xl">{name}</span>
+        <h1 class={`flex flex-col gap-2 text-xl text-black tracking-[1px] uppercase`}>
+          {isVariantOf?.name != name ?
+          <>
+            {isVariantOf?.name}
+            <span class="text-black text-xs">{name}</span>
+          </>
+          :
+            <span class="text-black text-xs">{name}</span>
+          }
         </h1>
       </div>
       {/* Prices */}
       <div class="mt-4">
-        <div class="flex flex-row gap-2 items-center">
-          <span class="line-through text-base-300 text-xs">
-            {formatPrice(listPrice, offers!.priceCurrency!)}
-          </span>
-          <span class="font-medium text-xl text-secondary">
+        <div class="flex flex-col gap-1\">
+          {listPrice != price &&
+            <span class="line-through text-base-content text-sm leading-[1]">
+              {formatPrice(listPrice, offers!.priceCurrency!)}
+            </span>
+          }
+          <span class="font-medium text-3xl text-secondary">
             {formatPrice(price, offers!.priceCurrency!)}
           </span>
         </div>
-        <span class="text-sm text-base-300">
-          {installments}
-        </span>
+
       </div>
       {/* Sku Selector */}
       <div class="mt-4 sm:mt-6">
@@ -115,16 +113,18 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
                   discount={price && listPrice ? listPrice - price : 0}
                   name={product.name ?? ""}
                   productGroupId={product.isVariantOf?.productGroupID ?? ""}
+                  variant="page-product"
                 />
               )}
-              <WishlistButton
-                variant="full"
-                productGroupID={isVariantOf?.productGroupID}
-                productID={productID}
-              />
             </>
           )
           : <OutOfStock productID={productID} />}
+      </div>
+      {/* Description card */}
+      <div class="mt-[30px]">
+          {description && (
+            <p class={`text-sm text-black`}>{description}</p>
+          )}
       </div>
       {/* Shipping Simulation */}
       <div class="mt-8">
@@ -135,17 +135,6 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
             seller: seller ?? "1",
           }]}
         />
-      </div>
-      {/* Description card */}
-      <div class="mt-4 sm:mt-6">
-        <span class="text-sm">
-          {description && (
-            <details>
-              <summary class="cursor-pointer">Descrição</summary>
-              <div class="ml-2 mt-2">{description}</div>
-            </details>
-          )}
-        </span>
       </div>
       {/* Analytics Event */}
       <SendEventOnLoad
@@ -167,46 +156,6 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
   );
 }
 
-/**
- * Here be dragons
- *
- * bravtexfashionstore (VTEX default fashion account) has the same images for different skus. However,
- * VTEX api does not return the same link for the same image. This causes the image to blink when
- * the user changes the selected SKU. To prevent this blink from happening, I created this function
- * bellow to use the same link for all skus. Example:
- *
- * {
-    skus: [
-      {
-        id: 1
-        image: [
-          "https://bravtexfashionstore.vtexassets.com/arquivos/ids/123/a.jpg",
-          "https://bravtexfashionstore.vtexassets.com/arquivos/ids/124/b.jpg",
-          "https://bravtexfashionstore.vtexassets.com/arquivos/ids/125/c.jpg"
-        ]
-      },
-      {
-        id: 2
-        image: [
-          "https://bravtexfashionstore.vtexassets.com/arquivos/ids/321/a.jpg",
-          "https://bravtexfashionstore.vtexassets.com/arquivos/ids/322/b.jpg",
-          "https://bravtexfashionstore.vtexassets.com/arquivos/ids/323/c.jpg"
-        ]
-      }
-    ]
-  }
-
-  for both skus 1 and 2, we have the same images a.jpg, b.jpg and c.jpg, but
-  they have different urls. This function returns, for both skus:
-
-  [
-    "https://bravtexfashionstore.vtexassets.com/arquivos/ids/321/a.jpg",
-    "https://bravtexfashionstore.vtexassets.com/arquivos/ids/322/b.jpg",
-    "https://bravtexfashionstore.vtexassets.com/arquivos/ids/323/c.jpg"
-  ]
-
-  This is a very catalog dependent function. Feel free to change this as you wish
- */
 const useStableImages = (product: ProductDetailsPage["product"]) => {
   const imageNameFromURL = (url = "") => {
     const segments = new URL(url).pathname.split("/");
@@ -233,7 +182,7 @@ function Details({
   page,
   variant,
 }: { page: ProductDetailsPage; variant: Variant }) {
-  const { product } = page;
+  const { product, breadcrumbList } = page;
   const id = `product-image-gallery:${useId()}`;
   const images = useStableImages(product);
 
@@ -247,6 +196,13 @@ function Details({
   if (variant === "slider") {
     return (
       <>
+         {/* Breadcrumb */}
+         <div class={`mt-4 mb-[30px] px-4`}>
+          <Breadcrumb
+            itemListElement={breadcrumbList?.itemListElement.slice(0, -1)}
+          />
+         </div>
+        
         <div
           id={id}
           class="grid grid-cols-1 gap-4 sm:grid-cols-[max-content_40vw_40vw] sm:grid-rows-1 sm:justify-center"
@@ -275,20 +231,6 @@ function Details({
               ))}
             </Slider>
 
-            <Slider.PrevButton
-              class="no-animation absolute left-2 top-1/2 btn btn-circle btn-outline"
-              disabled
-            >
-              <Icon size={20} id="ChevronLeft" strokeWidth={3} />
-            </Slider.PrevButton>
-
-            <Slider.NextButton
-              class="no-animation absolute right-2 top-1/2 btn btn-circle btn-outline"
-              disabled={images.length < 2}
-            >
-              <Icon size={20} id="ChevronRight" strokeWidth={3} />
-            </Slider.NextButton>
-
             <div class="absolute top-2 right-2 bg-base-100 rounded-full">
               <ProductImageZoom
                 images={images}
@@ -299,15 +241,15 @@ function Details({
           </div>
 
           {/* Dots */}
-          <ul class="flex gap-2 sm:justify-start overflow-auto px-4 sm:px-0 sm:flex-col sm:col-start-1 sm:col-span-1 sm:row-start-1">
+          <ul class="flex items-center justify-center gap-2 overflow-auto px-4">
             {images.map((img, index) => (
-              <li class="min-w-[63px] sm:min-w-[100px]">
+              <li class="min-w-[70px] min-h-[70px]">
                 <Slider.Dot index={index}>
                   <Image
                     style={{ aspectRatio: ASPECT_RATIO }}
-                    class="group-disabled:border-base-300 border rounded "
-                    width={63}
-                    height={87.5}
+                    class="group-disabled:border-secondary border rounded-[10px] "
+                    width={70}
+                    height={70}
                     src={img.url!}
                     alt={img.alternateName}
                   />

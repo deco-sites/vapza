@@ -11842,7 +11842,7 @@
           "type": "string",
           "format": "color",
           "title": "Tertiary",
-          "default": "#00FF7F"
+          "default": "#f4d243"
         }
       },
       "required": [
