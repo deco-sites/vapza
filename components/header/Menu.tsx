@@ -1,5 +1,5 @@
 import Icon from "$store/components/ui/Icon.tsx";
-export interface NavItem{
+export interface NavItem {
   label: string;
   href: string;
 }
@@ -8,9 +8,7 @@ export interface Props {
 }
 
 function MenuItem({ item }: { item: NavItem }) {
-  return (
-    <a class="underline text-sm" href={item.href}>{item.label}</a>
-  );
+  return <a class="underline text-sm" href={item.href}>{item.label}</a>;
 }
 
 function Menu({ items }: Props) {

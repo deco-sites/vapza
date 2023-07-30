@@ -1,7 +1,7 @@
 import Modal from "$store/components/ui/Modal.tsx";
 import { lazy, Suspense } from "preact/compat";
 import { useUI } from "$store/sdk/useUI.ts";
-import { useEffect} from "preact/hooks";
+import { useEffect } from "preact/hooks";
 import Menu from "$store/components/header/Menu.tsx";
 import type { Props as MenuProps } from "$store/components/header/Menu.tsx";
 import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
@@ -37,7 +37,11 @@ function Modals({ menu, searchbar }: Props) {
 
   return (
     <>
-      <div class={`${displayMenu.value ? "animate-slide-top block" : "hidden"} bg-white ease-linear duration-500 z-40 fixed left-0 w-full h-full`}>
+      <div
+        class={`${
+          displayMenu.value ? "animate-slide-top block" : "hidden"
+        } bg-white ease-linear duration-500 z-40 fixed left-0 w-full h-full`}
+      >
         <Suspense fallback={fallback}>
           <Menu {...menu} />
         </Suspense>
