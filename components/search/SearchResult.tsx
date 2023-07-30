@@ -40,6 +40,19 @@ function Result({
   cardLayout,
 }: Omit<Props, "page"> & { page: ProductListingPage }) {
   const { products, filters, breadcrumb, pageInfo, sortOptions } = page;
+  let lengthPagination = 0;
+
+  if(pageInfo?.records && pageInfo?.recordPerPage && pageInfo.records % pageInfo.recordPerPage != 0){
+    lengthPagination = pageInfo.records % pageInfo.recordPerPage + 1;
+  }else if(pageInfo?.records && pageInfo?.recordPerPage && pageInfo.records % pageInfo.recordPerPage == 0){
+    lengthPagination = pageInfo.records % pageInfo.recordPerPage;
+  }
+
+  const paginationItems = Array.from({ length: lengthPagination }, (_, index) => (
+    <span key={index} class="btn btn-ghost join-item">
+      Page {pageInfo.currentPage + index + 1}
+    </span>
+  ));
 
   return (
     <>
@@ -70,8 +83,10 @@ function Result({
               href={pageInfo.previousPage ?? "#"}
               class="btn btn-ghost join-item"
             >
+              {console.log(pageInfo)}
               <Icon id="ChevronLeft" width={20} height={20} strokeWidth={2} />
             </a>
+            {paginationItems}
             <span class="btn btn-ghost join-item">
               Page {pageInfo.currentPage + 1}
             </span>

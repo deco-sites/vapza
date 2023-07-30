@@ -1,6 +1,7 @@
 import { useMemo } from "preact/hooks";
 import { ProductListingPage } from "deco-sites/std/commerce/types.ts";
 import type { JSX } from "preact";
+import Icon from "$store/components/ui/Icon.tsx"
 
 const SORT_QUERY_PARAM = "sort";
 
@@ -34,21 +35,29 @@ function Sort({ sortOptions }: Props) {
   const sort = useSort();
 
   return (
-    <select
-      id="sort"
-      name="sort"
-      onInput={applySort}
-      class="w-min h-[36px] px-1 rounded m-2 text-base-content cursor-pointer outline-none"
-    >
-      {sortOptions.map(({ value, label }) => ({
-        value,
-        label: portugueseMappings[label as keyof typeof portugueseMappings],
-      })).filter(({ label }) => label).map(({ value, label }) => (
-        <option key={value} value={value} selected={value === sort}>
-          <span class="text-sm">{label}</span>
+    <div class={`relative w-full`}>
+      <select
+        id="sort"
+        name="sort"
+        onInput={applySort}
+        class="relative w-full h-10 pl-4 rounded-[40px] mt-4 border border-secondary text-secondary cursor-pointer outline-none appearance-none"
+      >
+        <option key={""} value={""} selected={true}>
+            <span class="text-sm">Selecione</span>
         </option>
-      ))}
-    </select>
+        {sortOptions.map(({ value, label }) => ({
+          value,
+          label: portugueseMappings[label as keyof typeof portugueseMappings],
+        })).filter(({ label }) => label).map(({ value, label }) => (
+          <option key={value} value={value} >
+            <span class="text-sm">{label}</span>
+          </option>
+        ))}
+      </select>
+      <div class={"absolute right-4 top-[25px] flex w-5 h-5 text-secondary"}>
+        <Icon id="ChevronDown" width={20} height={20} strokeWidth={2} />
+      </div>
+    </div>
   );
 }
 
