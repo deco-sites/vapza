@@ -1,7 +1,7 @@
 import { useMemo } from "preact/hooks";
 import { ProductListingPage } from "deco-sites/std/commerce/types.ts";
 import type { JSX } from "preact";
-import Icon from "$store/components/ui/Icon.tsx"
+import Icon from "$store/components/ui/Icon.tsx";
 
 const SORT_QUERY_PARAM = "sort";
 
@@ -43,13 +43,13 @@ function Sort({ sortOptions }: Props) {
         class="relative w-full h-10 pl-4 rounded-[40px] mt-4 border border-secondary text-secondary cursor-pointer outline-none appearance-none"
       >
         <option key={""} value={""} selected={true}>
-            <span class="text-sm">Selecione</span>
+          <span class="text-sm">Selecione</span>
         </option>
         {sortOptions.map(({ value, label }) => ({
           value,
           label: portugueseMappings[label as keyof typeof portugueseMappings],
         })).filter(({ label }) => label).map(({ value, label }) => (
-          <option key={value} value={value} >
+          <option key={value} value={value}>
             <span class="text-sm">{label}</span>
           </option>
         ))}

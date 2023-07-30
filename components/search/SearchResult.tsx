@@ -42,17 +42,26 @@ function Result({
   const { products, filters, breadcrumb, pageInfo, sortOptions } = page;
   let lengthPagination = 0;
 
-  if(pageInfo?.records && pageInfo?.recordPerPage && pageInfo.records % pageInfo.recordPerPage != 0){
+  if (
+    pageInfo?.records && pageInfo?.recordPerPage &&
+    pageInfo.records % pageInfo.recordPerPage != 0
+  ) {
     lengthPagination = pageInfo.records % pageInfo.recordPerPage + 1;
-  }else if(pageInfo?.records && pageInfo?.recordPerPage && pageInfo.records % pageInfo.recordPerPage == 0){
+  } else if (
+    pageInfo?.records && pageInfo?.recordPerPage &&
+    pageInfo.records % pageInfo.recordPerPage == 0
+  ) {
     lengthPagination = pageInfo.records % pageInfo.recordPerPage;
   }
 
-  const paginationItems = Array.from({ length: lengthPagination }, (_, index) => (
-    <span key={index} class="btn btn-ghost join-item">
-      Page {pageInfo.currentPage + index + 1}
-    </span>
-  ));
+  const paginationItems = Array.from(
+    { length: lengthPagination },
+    (_, index) => (
+      <span key={index} class="btn btn-ghost join-item">
+        Page {pageInfo.currentPage + index + 1}
+      </span>
+    ),
+  );
 
   return (
     <>
