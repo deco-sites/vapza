@@ -111,7 +111,7 @@
     order: -1;
   }
   .btn-card-prod{
-    width: 100%;
+    width: 90%;
     background-color: #000;
     color: #fff;
     border-radius: 25px;
@@ -122,6 +122,7 @@
     gap: 10px;
     text-transform: uppercase;
     font-size: 12px;
+    margin: 0 auto 15px;
   }
 }
 
@@ -138,6 +139,17 @@
     display: none;
   }
 
+  .scrollbar-vapza::-webkit-scrollbar {
+    width: 4px
+  }
+
+  .scrollbar-vapza::-webkit-scrollbar-track {
+      background-color: #cccccc
+  }
+
+  .scrollbar-vapza::-webkit-scrollbar-thumb {
+      background-color: #8fd400
+  }
   @keyframes slide-left-frame {
     0% {
       transform: translateX(100%);

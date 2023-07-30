@@ -37,9 +37,9 @@ function MenuItem({ item }: { item: NavItem }) {
 function Menu({ items, itemsBottom }: Props) {
   return (
     <>
-      <ul class="flex flex-col border-b border-base-200">
+      <ul class="flex flex-col">
         {items.map((item) => (
-          <li>
+          <li class={`border-b border-base-300`}>
             <MenuItem item={item} />
           </li>
         ))}

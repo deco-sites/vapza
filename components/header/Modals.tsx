@@ -40,7 +40,7 @@ function Modals({ menu, searchbar }: Props) {
       <div
         class={`${
           displayMenu.value ? "animate-slide-top block" : "hidden"
-        } bg-white ease-linear duration-500 z-40 fixed left-0 w-full h-full`}
+        } bg-white ease-linear duration-500 z-40 fixed left-0 w-full h-full overflow-y-scroll scrollbar-vapza`}
       >
         <Suspense fallback={fallback}>
           <Menu {...menu} />

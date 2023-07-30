@@ -73,7 +73,7 @@ function CartButton() {
       data-deco={displayCart.value && "open-cart"}
       onClick={onClick}
     >
-      <div class="flex flex-row-reverse gap-2 items-center">
+      <div class="absolute right-0 top-0 flex flex-row-reverse gap-2 items-center">
         <span class="leading-[1] text-primary">
           {totalItems <= 9 ? "0" + totalItems : totalItems}
         </span>
