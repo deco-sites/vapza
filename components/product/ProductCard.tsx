@@ -6,6 +6,7 @@ import { formatPrice } from "$store/sdk/format.ts";
 import { useVariantPossibilities } from "$store/sdk/useVariantPossiblities.ts";
 import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
 import { SendEventOnClick } from "$store/sdk/analytics.tsx";
+import AddToCartButton from "$store/islands/AddToCartButton.tsx";
 import type { Product } from "deco-sites/std/commerce/types.ts";
 
 export interface Layout {
@@ -66,7 +67,7 @@ function ProductCard({ product, preload, itemListName, layout }: Props) {
   const id = `product-card-${productID}`;
   const productGroupID = isVariantOf?.productGroupID;
   const [front, back] = images ?? [];
-  const { listPrice, price, installments } = useOffer(offers);
+  const { listPrice, price, installments, seller, availability } = useOffer(offers);
   const possibilities = useVariantPossibilities(product);
   const variants = Object.entries(Object.values(possibilities)[0] ?? {});
 
@@ -75,15 +76,6 @@ function ProductCard({ product, preload, itemListName, layout }: Props) {
     !l?.basics?.contentAlignment || l?.basics?.contentAlignment == "Left"
       ? "left"
       : "center";
-  const cta = (
-    <a
-      href={url && relative(url)}
-      aria-label="view product"
-      class=""
-    >
-      {l?.basics?.ctaText || "Adicionar a sacola"}
-    </a>
-  );
 
   return (
     <div
@@ -208,20 +200,16 @@ function ProductCard({ product, preload, itemListName, layout }: Props) {
           </div>
         )}
       </div>
-      {!l?.hide?.cta
-        ? (
-          <div class={`px-5 py-4`}>
-            <div
-              class={`btn-card-prod ${
-                l?.onMouseOver?.showCta ? "lg:hidden" : ""
-              }`}
-            >
-              <Icon size={25} id="ShoppingCartProd" strokeWidth={2} class="" />
-              {cta}
-            </div>
-          </div>
-        )
-        : ""}
+      {seller && (
+        <AddToCartButton
+          skuId={productID}
+          sellerId={seller}
+          price={price ?? 0}
+          discount={price && listPrice ? listPrice - price : 0}
+          name={product.name ?? ""}
+          productGroupId={product.isVariantOf?.productGroupID ?? ""}
+        />
+      )}
     </div>
   );
 }
