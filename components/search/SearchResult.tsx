@@ -45,13 +45,17 @@ function Result({
   if (
     pageInfo?.records && pageInfo?.recordPerPage
   ) {
-    lengthPagination = Math.ceil(pageInfo.records/pageInfo.recordPerPage);
+    lengthPagination = Math.ceil(pageInfo.records / pageInfo.recordPerPage);
   }
 
   const paginationItems = Array.from(
     { length: lengthPagination },
     (_, index) => (
-      <a href={`?page=${index + 1}`} key={index} class="flex items-center justify-center text-black border border-black rounded-full w-[50px] h-[50px]">
+      <a
+        href={`?page=${index + 1}`}
+        key={index}
+        class="flex items-center justify-center text-black border border-black rounded-full w-[50px] h-[50px]"
+      >
         {index + 1}
       </a>
     ),
@@ -79,9 +83,11 @@ function Result({
         </div>
 
         <div class="flex justify-center my-4">
-            <div class={`flex flex-wrap gap-2.5 items-center justify-center px-[30px]`}>
-              {paginationItems}
-            </div>
+          <div
+            class={`flex flex-wrap gap-2.5 items-center justify-center px-[30px]`}
+          >
+            {paginationItems}
+          </div>
         </div>
       </div>
       <SendEventOnLoad
