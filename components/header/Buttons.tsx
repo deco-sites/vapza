@@ -26,7 +26,7 @@ function MenuButton() {
 
   return (
     <Button
-      class="btn btn-circle btn-sm btn-ghost"
+      class="btn btn-circle btn-sm btn-ghost flex flex-col"
       aria-label="open menu"
       onClick={() => {
         if (!displayMenu.value) {
@@ -36,7 +36,22 @@ function MenuButton() {
         }
       }}
     >
-      <Icon id="Bars3" width={20} height={20} strokeWidth={0.01} />
+      <div class={`hamburguer-menu ${displayMenu.value ? "open" : ""}`}>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      {!displayMenu.value
+        ? (
+          <span class={`text-xs text-primary tracking-[1px] uppercase`}>
+            Menu
+          </span>
+        )
+        : (
+          <span class={`text-xs text-primary tracking-[1px] uppercase`}>
+            Fechar
+          </span>
+        )}
     </Button>
   );
 }
@@ -73,7 +88,7 @@ function CartButton() {
       data-deco={displayCart.value && "open-cart"}
       onClick={onClick}
     >
-      <div class="absolute right-0 top-0 flex flex-row-reverse gap-2 items-center">
+      <div class="absolute right-0 top-[3px] flex flex-row-reverse gap-2 items-center">
         <span class="leading-[1] text-primary">
           {totalItems <= 9 ? "0" + totalItems : totalItems}
         </span>

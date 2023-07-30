@@ -124,6 +124,29 @@
     font-size: 12px;
     margin: 0 auto 15px;
   }
+  .hamburguer-menu .bar{
+    display: block;
+    width: 18px;
+    height: 2px;
+    margin: 5px 0;
+    transition: all .3s ease;
+    background-color: #235140;
+  }
+  .hamburguer-menu .bar:nth-child(2){
+    width: 25px;
+  }
+  .hamburguer-menu{
+    display: block;
+  }
+  .hamburguer-menu.open .bar:nth-child(2){
+    opacity: 0;
+  }
+  .hamburguer-menu.open .bar:nth-child(1){
+    transform: translateY(6px) rotate(45deg);
+  }
+  .hamburguer-menu.open .bar:nth-child(3){
+    transform: translateY(-8px) rotate(-45deg);
+  }
 }
 
 
