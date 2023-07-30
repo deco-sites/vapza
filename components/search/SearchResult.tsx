@@ -43,23 +43,17 @@ function Result({
   let lengthPagination = 0;
 
   if (
-    pageInfo?.records && pageInfo?.recordPerPage &&
-    pageInfo.records % pageInfo.recordPerPage != 0
+    pageInfo?.records && pageInfo?.recordPerPage
   ) {
-    lengthPagination = pageInfo.records % pageInfo.recordPerPage + 1;
-  } else if (
-    pageInfo?.records && pageInfo?.recordPerPage &&
-    pageInfo.records % pageInfo.recordPerPage == 0
-  ) {
-    lengthPagination = pageInfo.records % pageInfo.recordPerPage;
+    lengthPagination = Math.ceil(pageInfo.records/pageInfo.recordPerPage);
   }
 
   const paginationItems = Array.from(
     { length: lengthPagination },
     (_, index) => (
-      <span key={index} class="btn btn-ghost join-item">
-        Page {pageInfo.currentPage + index + 1}
-      </span>
+      <a href={`?page=${index + 1}`} key={index} class="flex items-center justify-center text-black border border-black rounded-full w-[50px] h-[50px]">
+        {index + 1}
+      </a>
     ),
   );
 
@@ -85,34 +79,9 @@ function Result({
         </div>
 
         <div class="flex justify-center my-4">
-          <div class="join">
-            <a
-              aria-label="previous page link"
-              rel="prev"
-              href={pageInfo.previousPage ?? "#"}
-              class="btn btn-ghost join-item"
-            >
-              {console.log(pageInfo)}
-              <Icon id="ChevronLeft" width={20} height={20} strokeWidth={2} />
-            </a>
-            {paginationItems}
-            <span class="btn btn-ghost join-item">
-              Page {pageInfo.currentPage + 1}
-            </span>
-            <a
-              aria-label="next page link"
-              rel="next"
-              href={pageInfo.nextPage ?? "#"}
-              class="btn btn-ghost join-item"
-            >
-              <Icon
-                id="ChevronRight"
-                width={20}
-                height={20}
-                strokeWidth={2}
-              />
-            </a>
-          </div>
+            <div class={`flex flex-wrap gap-2.5 items-center justify-center px-[30px]`}>
+              {paginationItems}
+            </div>
         </div>
       </div>
       <SendEventOnLoad
