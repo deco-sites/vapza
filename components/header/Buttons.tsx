@@ -29,7 +29,11 @@ function MenuButton() {
       class="btn btn-circle btn-sm btn-ghost"
       aria-label="open menu"
       onClick={() => {
-        displayMenu.value = true;
+        if(!displayMenu.value){
+          displayMenu.value = true;
+        }else{
+          displayMenu.value = false;
+        }
       }}
     >
       <Icon id="Bars3" width={20} height={20} strokeWidth={0.01} />

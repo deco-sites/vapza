@@ -168,6 +168,16 @@
     }
   }
 
+  @keyframes slide-top-frame {
+    0% {
+      transform: translateY(-100%)
+    }
+
+    to {
+      transform: translateY(125px)
+    }
+  }
+
   .animate-slide-left {
     animation: slide-left-frame 0.4s ease normal;
   }
@@ -178,6 +188,10 @@
 
   .animate-slide-bottom {
     animation: slide-bottom-frame 0.4s ease normal;
+  }
+
+  .animate-slide-top {
+    animation: slide-top-frame 0.4s ease forwards;
   }
 }
 

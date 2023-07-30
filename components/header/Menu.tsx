@@ -1,28 +1,15 @@
 import Icon from "$store/components/ui/Icon.tsx";
-import type { INavItem } from "./NavItem.tsx";
-
+export interface NavItem{
+  label: string;
+  href: string;
+}
 export interface Props {
-  items: INavItem[];
+  items: NavItem[];
 }
 
-function MenuItem({ item }: { item: INavItem }) {
+function MenuItem({ item }: { item: NavItem }) {
   return (
-    <div class="collapse collapse-plus">
-      <input type="checkbox" />
-      <div class="collapse-title">{item.label}</div>
-      <div class="collapse-content">
-        <ul>
-          <li>
-            <a class="underline text-sm" href={item.href}>Ver todos</a>
-          </li>
-          {item.children?.map((node) => (
-            <li>
-              <MenuItem item={node} />
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
+    <a class="underline text-sm" href={item.href}>{item.label}</a>
   );
 }
 

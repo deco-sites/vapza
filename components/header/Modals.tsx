@@ -1,11 +1,11 @@
 import Modal from "$store/components/ui/Modal.tsx";
 import { lazy, Suspense } from "preact/compat";
 import { useUI } from "$store/sdk/useUI.ts";
-
+import { useEffect} from "preact/hooks";
+import Menu from "$store/components/header/Menu.tsx";
 import type { Props as MenuProps } from "$store/components/header/Menu.tsx";
 import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
 
-const Menu = lazy(() => import("$store/components/header/Menu.tsx"));
 const Cart = lazy(() => import("$store/components/minicart/Cart.tsx"));
 const Searchbar = lazy(() => import("$store/components/search/Searchbar.tsx"));
 
@@ -17,6 +17,18 @@ interface Props {
 function Modals({ menu, searchbar }: Props) {
   const { displayCart, displayMenu, displaySearchbar } = useUI();
 
+  useEffect(() => {
+    if (displayMenu.value === false) {
+      document.getElementsByTagName("body").item(0)?.classList.remove(
+        "no-scroll",
+      );
+    } else if (displayMenu.value === true) {
+      document.getElementsByTagName("body").item(0)?.classList.add(
+        "no-scroll",
+      );
+    }
+  }, [displayMenu.value]);
+
   const fallback = (
     <div class="flex justify-center items-center w-full h-full">
       <span class="loading loading-ring" />
@@ -25,19 +37,11 @@ function Modals({ menu, searchbar }: Props) {
 
   return (
     <>
-      <Modal
-        title="Menu"
-        mode="sidebar-left"
-        loading="lazy"
-        open={displayMenu.value}
-        onClose={() => {
-          displayMenu.value = false;
-        }}
-      >
+      <div class={`${displayMenu.value ? "animate-slide-top block" : "hidden"} bg-white ease-linear duration-500 z-40 fixed left-0 w-full h-full`}>
         <Suspense fallback={fallback}>
           <Menu {...menu} />
         </Suspense>
-      </Modal>
+      </div>
 
       <Modal
         title="Buscar"
