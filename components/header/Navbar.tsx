@@ -3,13 +3,26 @@ import { navbarHeight } from "./constants.ts";
 import Image from "deco-sites/std/components/Image.tsx";
 import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
 
+export interface IconItem {
+  label:
+    // | "Grid"
+    // | "ToqueFinal"
+    // | "SoAquecer"
+    // | "Organico"
+    // | "Single"
+    | "PratosProntos";
+    // | "Kits";
+}
+
 export interface INavItem {
+  icon: IconItem;
   label: string;
   href: string;
 }
 
-function Navbar({ items, searchbar, logo }: {
+function Navbar({ items, itemsBottom, searchbar, logo }: {
   items: INavItem[];
+  itemsBottom: INavItem[];
   searchbar: SearchbarProps;
   logo?: { src: string; alt: string };
 }) {

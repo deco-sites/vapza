@@ -7,64 +7,54 @@ import type { Product, Suggestion } from "deco-sites/std/commerce/types.ts";
 import Navbar from "./Navbar.tsx";
 import { headerHeight } from "./constants.ts";
 
+export interface IconItem {
+  label:
+    // | "Grid"
+    // | "ToqueFinal"
+    // | "SoAquecer"
+    // | "Organico"
+    // | "Single"
+    | "PratosProntos";
+    // | "Kits";
+}
 export interface NavItem {
+  icon: IconItem;
   label: string;
   href: string;
-  children?: Array<{
-    label: string;
-    href: string;
-    children?: Array<{
-      label: string;
-      href: string;
-    }>;
-  }>;
-  image?: {
-    src?: Image;
-    alt?: string;
-  };
 }
-
 export interface Props {
-  /** @title Search Bar */
-  searchbar?: SearchbarProps;
+  /** @title Logo */
+  logo?: { src: Image; alt: string };
+
+  
   /**
    * @title Navigation items
-   * @description Navigation items used both on mobile and desktop menus
+   * @description Navigation items used on mobile
    */
   navItems?: NavItem[];
 
-  /**
-   * @title Product suggestions
-   * @description Product suggestions displayed on search
-   */
-  products?: LoaderReturnType<Product[] | null>;
-
-  /**
-   * @title Enable Top Search terms
-   */
-  suggestions?: LoaderReturnType<Suggestion | null>;
-
-  /** @title Logo */
-  logo?: { src: Image; alt: string };
+  navItemsBottom?: NavItem[];
+/** @title Search Bar */
+  searchbar?: SearchbarProps;
+  
 }
 
 function Header({
   searchbar: _searchbar,
-  products,
   navItems = [],
-  suggestions,
+  navItemsBottom = [],
   logo,
 }: Props) {
-  const searchbar = { ..._searchbar, products, suggestions };
+  const searchbar = { ..._searchbar};
   return (
     <>
       <header style={{ height: headerHeight }}>
         <div class="bg-base-100 fixed w-full z-50">
-          <Navbar items={navItems} searchbar={searchbar} logo={logo} />
+          <Navbar items={navItems} itemsBottom={navItemsBottom} searchbar={searchbar} logo={logo} />
         </div>
 
         <Modals
-          menu={{ items: navItems }}
+          menu={{ items: navItems, itemsBottom: navItemsBottom }}
           searchbar={searchbar}
         />
       </header>

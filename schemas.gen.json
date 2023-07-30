@@ -9783,6 +9783,51 @@
       "required": [],
       "title": "deco-sites/vapza/components/footer/Footer.tsx@Props"
     },
+    "ZGVjby1zaXRlcy92YXB6YS9jb21wb25lbnRzL2hlYWRlci9IZWFkZXIudHN4@IconItem": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string",
+          "const": "PratosProntos",
+          "default": "PratosProntos",
+          "title": "Label"
+        }
+      },
+      "required": [
+        "label"
+      ],
+      "title": "IconItem"
+    },
+    "ZGVjby1zaXRlcy92YXB6YS9jb21wb25lbnRzL2hlYWRlci9IZWFkZXIudHN4@NavItem": {
+      "type": "object",
+      "properties": {
+        "icon": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy92YXB6YS9jb21wb25lbnRzL2hlYWRlci9IZWFkZXIudHN4@IconItem",
+          "title": "Icon"
+        },
+        "label": {
+          "type": "string",
+          "title": "Label"
+        },
+        "href": {
+          "type": "string",
+          "title": "Href"
+        }
+      },
+      "required": [
+        "icon",
+        "label",
+        "href"
+      ],
+      "title": "NavItem"
+    },
+    "ZGVjby1zaXRlcy92YXB6YS9jb21wb25lbnRzL2hlYWRlci9IZWFkZXIudHN4@NavItem[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy92YXB6YS9jb21wb25lbnRzL2hlYWRlci9IZWFkZXIudHN4@NavItem"
+      },
+      "title": "NavItem[]"
+    },
     "ZGVjby1zaXRlcy92YXB6YS9jb21wb25lbnRzL3NlYXJjaC9TZWFyY2hiYXIudHN4@EditableProps": {
       "type": "object",
       "properties": {
@@ -9824,112 +9869,9 @@
       "required": [],
       "title": "EditableProps"
     },
-    "ZGVjby1zaXRlcy92YXB6YS9jb21wb25lbnRzL2hlYWRlci9IZWFkZXIudHN4@NavItem": {
-      "type": "object",
-      "properties": {
-        "label": {
-          "type": "string",
-          "title": "Label"
-        },
-        "href": {
-          "type": "string",
-          "title": "Href"
-        },
-        "children": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "label": {
-                "type": "string",
-                "title": "Label"
-              },
-              "href": {
-                "type": "string",
-                "title": "Href"
-              },
-              "children": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "label": {
-                      "type": "string",
-                      "title": "Label"
-                    },
-                    "href": {
-                      "type": "string",
-                      "title": "Href"
-                    }
-                  },
-                  "required": [
-                    "label",
-                    "href"
-                  ]
-                },
-                "title": "Children"
-              }
-            },
-            "required": [
-              "label",
-              "href"
-            ]
-          },
-          "title": "Children"
-        },
-        "image": {
-          "type": "object",
-          "properties": {
-            "src": {
-              "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
-              "title": "Src"
-            },
-            "alt": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "title": "Alt"
-            }
-          },
-          "required": [],
-          "title": "Image"
-        }
-      },
-      "required": [
-        "label",
-        "href"
-      ],
-      "title": "NavItem"
-    },
-    "ZGVjby1zaXRlcy92YXB6YS9jb21wb25lbnRzL2hlYWRlci9IZWFkZXIudHN4@NavItem[]": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/ZGVjby1zaXRlcy92YXB6YS9jb21wb25lbnRzL2hlYWRlci9IZWFkZXIudHN4@NavItem"
-      },
-      "title": "NavItem[]"
-    },
     "ZGVjby1zaXRlcy92YXB6YS9jb21wb25lbnRzL2hlYWRlci9IZWFkZXIudHN4@Props": {
       "type": "object",
       "properties": {
-        "searchbar": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy92YXB6YS9jb21wb25lbnRzL3NlYXJjaC9TZWFyY2hiYXIudHN4@EditableProps",
-          "title": "Search Bar"
-        },
-        "navItems": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy92YXB6YS9jb21wb25lbnRzL2hlYWRlci9IZWFkZXIudHN4@NavItem[]",
-          "title": "Navigation items",
-          "description": "Navigation items used both on mobile and desktop menus"
-        },
-        "products": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Product[]|null",
-          "title": "Product suggestions",
-          "description": "Product suggestions displayed on search"
-        },
-        "suggestions": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Suggestion|null",
-          "title": "Enable Top Search terms"
-        },
         "logo": {
           "type": "object",
           "properties": {
@@ -9947,6 +9889,19 @@
             "alt"
           ],
           "title": "Logo"
+        },
+        "navItems": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy92YXB6YS9jb21wb25lbnRzL2hlYWRlci9IZWFkZXIudHN4@NavItem[]",
+          "title": "Navigation items",
+          "description": "Navigation items used on mobile"
+        },
+        "navItemsBottom": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy92YXB6YS9jb21wb25lbnRzL2hlYWRlci9IZWFkZXIudHN4@NavItem[]",
+          "title": "Nav Items Bottom"
+        },
+        "searchbar": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy92YXB6YS9jb21wb25lbnRzL3NlYXJjaC9TZWFyY2hiYXIudHN4@EditableProps",
+          "title": "Search Bar"
         }
       },
       "required": [],
@@ -10960,6 +10915,41 @@
               "type": "string",
               "const": "Youtube",
               "default": "Youtube"
+            },
+            {
+              "type": "string",
+              "const": "Grid",
+              "default": "Grid"
+            },
+            {
+              "type": "string",
+              "const": "ToqueFinal",
+              "default": "ToqueFinal"
+            },
+            {
+              "type": "string",
+              "const": "SoAquecer",
+              "default": "SoAquecer"
+            },
+            {
+              "type": "string",
+              "const": "Organico",
+              "default": "Organico"
+            },
+            {
+              "type": "string",
+              "const": "Single",
+              "default": "Single"
+            },
+            {
+              "type": "string",
+              "const": "PratosProntos",
+              "default": "PratosProntos"
+            },
+            {
+              "type": "string",
+              "const": "Kits",
+              "default": "Kits"
             }
           ],
           "type": "string",

@@ -47,7 +47,14 @@ export type AvailableIcons =
   | "Hipercard"
   | "Boleto"
   | "AmericanExpress"
-  | "Youtube";
+  | "Youtube"
+  | "Grid"
+  | "ToqueFinal"
+  | "SoAquecer"
+  | "Organico"
+  | "Single"
+  | "PratosProntos"
+  | "Kits";
 
 interface Props extends JSX.SVGAttributes<SVGSVGElement> {
   /**
