@@ -12279,6 +12279,16 @@
             },
             {
               "type": "string",
+              "const": "Nunito",
+              "default": "Nunito"
+            },
+            {
+              "type": "string",
+              "const": "Baloo Thambi",
+              "default": "Baloo Thambi"
+            },
+            {
+              "type": "string",
               "const": "Open Sans",
               "default": "Open Sans"
             },
