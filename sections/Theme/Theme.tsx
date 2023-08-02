@@ -257,6 +257,8 @@ export interface Font {
     | "Merriweather"
     | "Montserrat"
     | "Neuton"
+    | "Nunito"
+    | "Baloo Thambi"
     | "Open Sans"
     | "Poppins"
     | "Playfair Display"
