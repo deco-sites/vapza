@@ -167,12 +167,13 @@ function ProductCard({ product, preload, itemListName, layout }: Props) {
                 ? ""
                 : (
                   <h2 class="uppercase text-xs lg:text-lg text-black">
-                    {isVariantOf?.name != name ? (
-                      <>
-                        {isVariantOf?.name}
-                      </>
-                    )
-                    : <>{name}</>}
+                    {isVariantOf?.name != name
+                      ? (
+                        <>
+                          {isVariantOf?.name}
+                        </>
+                      )
+                      : <>{name}</>}
                   </h2>
                 )}
             </div>
