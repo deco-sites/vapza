@@ -47,27 +47,22 @@ function ShippingContent({ simulation }: {
   }
 
   return (
-    <ul class="flex flex-col gap-4 p-4 bg-base-200 rounded-[4px]">
+    <ul class="flex flex-col gap-4 p-4 rounded-[4px]">
       {methods.map((method) => (
         <li class="flex justify-between items-center border-base-200 not-first-child:border-t">
-          <span class="text-button text-center">
+          <span class="text-black text-center">
             Entrega {method.name}
           </span>
-          <span class="text-button">
+          <span class="text-black">
             até {formatShippingEstimate(method.shippingEstimate)}
           </span>
-          <span class="text-base font-semibold text-right">
+          <span class="text-black font-semibold text-right">
             {method.price === 0 ? "Grátis" : (
               formatPrice(method.price / 100, currencyCode, locale)
             )}
           </span>
         </li>
       ))}
-      <span class="text-base-300">
-        Os prazos de entrega começam a contar a partir da confirmação do
-        pagamento e podem variar de acordo com a quantidade de produtos na
-        sacola.
-      </span>
     </ul>
   );
 }
@@ -96,7 +91,7 @@ function ShippingSimulation({ items }: Props) {
   }, []);
 
   return (
-    <div class="flex flex-col gap-2">
+    <div class="flex flex-col gap-2 mb-10">
       <div>
         <form
           class="flex flex-col gap-2.5 relative"
@@ -119,7 +114,7 @@ function ShippingSimulation({ items }: Props) {
           <Button
             type="submit"
             loading={loading.value}
-            class="uppercase bg-tertiary h-[48px] tracking-[1px] text-sm rounded-[50px] text-black"
+            class="uppercase bg-[#f4d243] h-[48px] tracking-[1px] text-sm rounded-[50px] text-black"
           >
             Calcular frete
           </Button>

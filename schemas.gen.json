@@ -10950,6 +10950,31 @@
               "type": "string",
               "const": "Kits",
               "default": "Kits"
+            },
+            {
+              "type": "string",
+              "const": "chapeu",
+              "default": "chapeu"
+            },
+            {
+              "type": "string",
+              "const": "livro",
+              "default": "livro"
+            },
+            {
+              "type": "string",
+              "const": "box",
+              "default": "box"
+            },
+            {
+              "type": "string",
+              "const": "fita",
+              "default": "fita"
+            },
+            {
+              "type": "string",
+              "const": "balanca",
+              "default": "balanca"
             }
           ],
           "type": "string",

@@ -14,10 +14,10 @@ import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
 import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
 import type { ProductDetailsPage } from "deco-sites/std/commerce/types.ts";
 import type { LoaderReturnType } from "$live/types.ts";
-
 import ProductSelector from "./ProductVariantSelector.tsx";
 import ProductImageZoom from "$store/islands/ProductImageZoom.tsx";
 import WishlistButton from "../wishlist/WishlistButton.tsx";
+import type { HTML } from "deco-sites/std/components/types.ts";
 
 export type Variant = "front-back" | "slider" | "auto";
 
@@ -50,7 +50,204 @@ function NotFound() {
   );
 }
 
-function ProductInfo({ page }: { page: ProductDetailsPage }) {
+function ProductInfoSpecification({ page }: {page: ProductDetailsPage}) {
+  const {product} = page;
+  const {isVariantOf} = product;
+  const specification = isVariantOf?.additionalProperty;
+
+  let tableNutri, imgProd, contemGluten, alergicosComp, validade, 
+  videoReceita, condArmazenamento, imgProdPreparado, modoPreparo, certificacoes = '',
+  imgProdOrigem, titleRec, subTitleRec, ingredientes, imgReceita, linha, 
+  ingredientesBase, obsIngredienteBase, imgProdBase, qtd;
+
+  function createMarkup(htmlString: string) {
+    return { __html: htmlString };
+  }
+
+  const adicionarQuebraDeLinha = (texto: string) => {
+    return texto
+    .split('.')
+    .join('.<br><br>')
+    .split(':')
+    .join(':<br><br>')
+    .split(';')
+    .join(';<br><br>');
+  };
+  product.additionalProperty?.map((data) => {
+    if(data.name === 'category'){
+      linha = data.value;
+    }
+  })
+  specification?.map((data) => {
+    if(data.name === "HTML tabela nutricional"){
+      tableNutri = <div class={`table-nutri-pdp`} dangerouslySetInnerHTML={createMarkup(data.value || "")}/>
+    }
+    if(data.name === "Foto produto"){
+      imgProd = <div class={`w-[152px] flex items-center justify-center mt-[10px] mb-[30px] mx-auto`} dangerouslySetInnerHTML={createMarkup(data.value || "")}/>
+    }
+    if(data.name === "Contém glutén?"){
+      contemGluten =  <div class={`flex flex-col text-sm`}>
+                        <span class={`text-black py-[5px] pr-5 font-black`}>{data.name}</span>
+                        <span class={`text-black py-[5px] pr-5`}>{data.value}</span>
+                      </div>
+    }
+    if(data.name === "Info. complementar alérgicos:"){
+      alergicosComp = <div class={`flex flex-col text-sm`}>
+                        <span class={`text-black py-[5px] pr-5 font-black`}>{data.name}</span>
+                        <span class={`text-black py-[5px] pr-5`}>{data.value}</span>
+                      </div>
+    }
+    if(data.name === "Prazo de validade:"){
+      validade = <div class={`flex flex-col text-sm`}>
+                  <span class={`text-black py-[5px] pr-5 font-black`}>{data.name}</span>
+                  <span class={`text-black py-[5px] pr-5`}>{data.value}</span>
+                </div>
+    }
+    if(data.name === "Vídeo receita YouTube"){
+      videoReceita = <div class={`container-iframe-pdp`}>
+                        <h3 class={`text-center text-primary text-xl mb-4`}>{data.name}</h3>
+                        <div dangerouslySetInnerHTML={createMarkup(data.value || "")}/>
+                      </div>
+    }
+    if(data.name === "Condições de armazenamento"){
+      condArmazenamento = <div class="flex flex-col mt-[30px] mb-10">
+                            <h3 class={`text-center text-primary text-xl mb-4`}>{data.name}</h3>
+                            <span class="text-black py-[5px] pr-5 text-sm">{data.value}</span>
+                          </div>
+    }
+    if(data.name === "Foto produto preparado"){
+      imgProdPreparado = <div class={`w-[80%]`}>
+                            <div dangerouslySetInnerHTML={createMarkup(data.value || "")}/>
+                          </div>
+    }
+    if(data.name === "Modo de preparo"){
+      modoPreparo = <div>
+                      <h3 class={`text-primary text-xl mb-4 mt-5`}>{data.name}</h3>
+                      <div class={`text-black text-sm`}
+                      dangerouslySetInnerHTML={createMarkup(adicionarQuebraDeLinha(data.value || "") || "")}/>
+                    </div>
+    }
+    if(data.name === "Certificações"){
+      certificacoes = `${certificacoes} <span>${data.value},</span>`
+    }
+    if(data.name === "Foto no estado de origem do produto"){
+      imgProdOrigem = <div class={`absolute bottom-[-100px] right-0 opacity-30`}>
+                        <div dangerouslySetInnerHTML={createMarkup(data.value || "")}/>
+                      </div>
+    }
+    if(data.name === "Título Receita"){
+      titleRec = <div>
+                    <h3 class={`text-primary text-xl mt-5`}>{data.value}</h3>
+                 </div>
+    }
+    if(data.name === "Título ingredientes 1"){
+      subTitleRec = <div>
+                      <span class={`text-primary text-sm`}>{data.value}</span>
+                    </div>
+    }
+    if(data.name === "Lista ingredientes 1"){
+      ingredientes = <div>
+                      <div class={`text-black text-sm`}
+                      dangerouslySetInnerHTML={createMarkup(adicionarQuebraDeLinha(data.value || "") || "")}/>
+                    </div>
+    }
+    if(data.name === "Imagem ilustrativa da receita"){
+      imgReceita = <div class={`absolute bottom-0 right-0 opacity-30`}>
+                     <div class="container-img-pdp" dangerouslySetInnerHTML={createMarkup(data.value || "")}/>
+                   </div>
+    }
+    if(data.name === "Ingredientes"){
+      ingredientesBase = <span class={`text-black text-sm`}>{data.value}</span>
+    }
+    if(data.name === "Obs ingredientes"){
+      obsIngredienteBase = <span class={`text-black text-sm`}>{data.value}</span>
+    }
+    if(data.name === "Foto informações base"){
+      imgProdBase =   <div class={`absolute top-0 right-0 opacity-30 w-[60%]`}>
+                        <div dangerouslySetInnerHTML={createMarkup(data.value || "")}/>
+                      </div>
+    }
+    if(data.name === "Quantidade"){
+      qtd = <span class={`text-black text-sm`}>{data.value}</span>
+    }
+    
+  });
+
+  return (
+    <>
+    <div class={`relative`}>
+      <h3 class={`text-primary text-xl mb-4`}>Informações base</h3>
+      <div class={`flex flex-col gap-[30px] mb-10`}>
+        {imgProdBase}
+        <div class={`flex flex-row gap-6`}>
+          <Icon size={40} id="chapeu" strokeWidth={1} class="" />
+          <div class={`flex flex-col`}>
+              <h4 class={`uppercase font-black text-black text-sm leading-[22px]`}>Linha</h4>
+              <span class={`text-sm text-black`}>{linha}</span>
+          </div>
+        </div>
+        <div class={`flex flex-row gap-6`}>
+          <Icon size={40} id="livro" strokeWidth={1} class="" />
+          <div class={`flex flex-col`}>
+              <h4 class={`uppercase font-black text-black text-sm leading-[22px]`}>Ingredientes</h4>
+              {ingredientesBase}
+              {obsIngredienteBase}
+          </div>
+        </div>
+        <div class={`flex flex-row gap-6`}>
+          <Icon size={40} id="box" strokeWidth={1} class="" />
+          <div class={`flex flex-col`}>
+              <h4 class={`uppercase font-black text-black text-sm leading-[22px]`}>Quantidade</h4>
+              {qtd}
+          </div>
+        </div>
+        {/*IMPLEMENTAR PARA DIMENSÕES E PESO LIQUIDO */}
+      </div>
+    </div>
+      {imgProd ? 
+        <>
+          <h3 class={`text-center text-primary text-xl mb-4`}>Informações Nutricionais</h3>
+          {imgProd}
+          {tableNutri}
+        </>
+      :
+        <></>
+      }
+      <div class={`pb-5 mb-10 border-b border-b-[#ccc]`}>
+        <h3 class={`text-primary text-xl mb-4 mt-5`}>Alérgicos</h3>
+        {contemGluten}
+        {alergicosComp}
+        {validade}
+      </div>
+      {videoReceita}
+      {condArmazenamento}
+      {imgProdPreparado}
+      {modoPreparo?
+        <div class={`mb-10 relative`}>
+          {modoPreparo}
+          {imgProdOrigem}
+          <div class={`text-sm text-black`} dangerouslySetInnerHTML={createMarkup(certificacoes || "")}/>
+        </div>
+      :
+        <></>
+      }
+      {titleRec? 
+        <div class={`flex flex-col gap-4 relative`}>
+            {titleRec}
+            <span class={`text-primary text-xl`}>Ingredientes</span>
+            {subTitleRec}
+            {ingredientes}
+            {imgReceita}
+        </div>
+      :
+        <></>
+      }
+
+    </>
+  );
+}
+
+function ProductInfo({ page }: {page: ProductDetailsPage}) {
   const {
     breadcrumbList,
     product,
@@ -66,7 +263,7 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
   const { price, listPrice, seller, installments, availability } = useOffer(
     offers,
   );
-  console.log(product);
+  
   return (
     <>
       {/* Code and name */}
@@ -81,7 +278,8 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
                 <span class="text-black text-xs">{name}</span>
               </>
             )
-            : <span class="text-black text-xs">{name}</span>}
+            : <>{name}</>
+            }
         </h1>
       </div>
       {/* Prices */}
@@ -135,6 +333,10 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
             seller: seller ?? "1",
           }]}
         />
+      </div>
+      {/* Informações dos produtos */}
+      <div>
+        <ProductInfoSpecification page={page}/>
       </div>
       {/* Analytics Event */}
       <SendEventOnLoad

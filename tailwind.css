@@ -161,6 +161,35 @@
   .hamburguer-menu.open .bar:nth-child(3){
     transform: translateY(-8px) rotate(-45deg);
   }
+  .table-nutri-pdp{
+    width: 100%;
+    font-size: 14px;
+    color: black;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #ccc;
+  }
+  .table-nutri-pdp table{
+    width: 100%;
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+  }
+  .table-nutri-pdp table th, .table-nutri-pdp table tr, .table-nutri-pdp table td{
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    padding: 10px !important;
+    text-align: center;
+  }
+  .table-nutri-pdp table td{
+    max-width: 150px;
+  }
+  .container-iframe-pdp iframe{
+    width: 100%;
+    display: block;
+    height: 250px;
+  }
+  .container-img-pdp img{
+    max-height: 500px;
+  }
 }
 
 

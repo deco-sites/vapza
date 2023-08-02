@@ -54,7 +54,12 @@ export type AvailableIcons =
   | "Organico"
   | "Single"
   | "PratosProntos"
-  | "Kits";
+  | "Kits"
+  | "chapeu"
+  | "livro"
+  | "box"
+  | "fita"
+  | "balanca";
 
 interface Props extends JSX.SVGAttributes<SVGSVGElement> {
   /**
