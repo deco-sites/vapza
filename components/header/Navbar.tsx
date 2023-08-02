@@ -2,6 +2,7 @@ import Buttons from "$store/islands/HeaderButton.tsx";
 import { navbarHeight } from "./constants.ts";
 import Image from "deco-sites/std/components/Image.tsx";
 import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
+import Searchbar from "$store/components/search/Searchbar.tsx"
 
 export interface IconItem {
   label:
@@ -29,7 +30,7 @@ function Navbar({ items, itemsBottom, searchbar, logo }: {
   return (
     <>
       {/* Mobile Version */}
-      <div class="lg:hidden flex flex-col items-center shadow-header w-full px-4 gap-2">
+      <div class="lg:hidden flex flex-col items-center shadow-header w-full px-4 py-4 gap-2">
         <div class="flex w-full items-center justify-between">
           <Buttons variant="menu" />
           {logo && (
@@ -46,7 +47,7 @@ function Navbar({ items, itemsBottom, searchbar, logo }: {
             <Buttons variant="cart" />
           </div>
         </div>
-        <Buttons variant="search" />
+          <Searchbar  {...searchbar}/>
       </div>
     </>
   );
