@@ -2,7 +2,7 @@ import Buttons from "$store/islands/HeaderButton.tsx";
 import { navbarHeight } from "./constants.ts";
 import Image from "deco-sites/std/components/Image.tsx";
 import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
-import Searchbar from "$store/components/search/Searchbar.tsx"
+import Searchbar from "$store/components/search/Searchbar.tsx";
 
 export interface IconItem {
   label:
@@ -47,7 +47,7 @@ function Navbar({ items, itemsBottom, searchbar, logo }: {
             <Buttons variant="cart" />
           </div>
         </div>
-          <Searchbar  {...searchbar}/>
+        <Searchbar {...searchbar} />
       </div>
     </>
   );
